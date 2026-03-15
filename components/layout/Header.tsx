@@ -1,0 +1,187 @@
+"use client";
+
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { LinkButton } from "@/components/ui/link-button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Phone, Menu } from "lucide-react";
+import { locales } from "@/lib/i18n";
+import { useLanguage } from "@/components/providers/LanguageProvider";
+
+const PHONE_NUMBER = "682-321-6387";
+const PHONE_HREF = "tel:+16823216387";
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const { locale, setLocale, t } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
+  const navLinks = t.nav.map((label, index) => ({
+    label,
+    href: ["#free-inspection", "#why-choose-us", "#before-after", "#testimonials", "#service-area", "#faq"][index],
+  }));
+
+  const handleLocaleChange = (nextLocale: (typeof locales)[number]) => {
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    const segments = pathname.split("/").filter(Boolean);
+    if (segments[0] && locales.includes(segments[0] as (typeof locales)[number])) {
+      segments[0] = nextLocale;
+    } else {
+      segments.unshift(nextLocale);
+    }
+
+    setLocale(nextLocale);
+    setOpen(false);
+    router.push(`/${segments.join("/")}${hash}`);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-brand-surface/92 backdrop-blur-md shadow-[0_18px_40px_rgba(17,33,24,0.12)] border-b border-brand-navy/10"
+          : "bg-brand-surface/78 backdrop-blur-sm"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3 shrink-0">
+            <div className="relative h-11 w-[150px] sm:h-12 sm:w-[172px]">
+              <Image
+                src="/images/brand/praiseworthy-wordmark.png"
+                alt="Praise Worthy brand wordmark"
+                fill
+                priority
+                className="object-contain object-left"
+                sizes="172px"
+              />
+            </div>
+          </a>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1 rounded-full border border-brand-navy/8 bg-white/40 px-2 py-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="px-3 py-2 text-sm font-medium text-brand-text hover:text-brand-navy transition-colors rounded-full hover:bg-brand-navy/6"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <div className="hidden xl:flex items-center rounded-full border border-brand-navy/12 bg-white/70 p-1 shadow-sm">
+              {locales.map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => handleLocaleChange(code)}
+                  className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                    locale === code
+                      ? "bg-brand-navy text-brand-surface"
+                      : "text-brand-navy hover:bg-brand-navy/8"
+                  }`}
+                >
+                  {code === "zh" ? "中文" : code === "ko" ? "한국어" : code.toUpperCase()}
+                </button>
+              ))}
+            </div>
+            <a
+              href={PHONE_HREF}
+              className="flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-text transition-colors"
+              aria-label={t.header.callWithNumber}
+            >
+              <Phone className="h-4 w-4" />
+              {PHONE_NUMBER}
+            </a>
+            <LinkButton
+              href="#free-inspection"
+              className="rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber font-semibold shadow-[0_12px_26px_rgba(27,54,38,0.16)]"
+            >
+              {t.common.freeInspection}
+            </LinkButton>
+          </div>
+
+          {/* Mobile: Phone + Hamburger */}
+          <div className="flex md:hidden items-center gap-2">
+            <LinkButton
+              href={PHONE_HREF}
+              size="sm"
+              className="rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber"
+            >
+              <Phone className="h-4 w-4 mr-1" />
+              {t.common.call}
+            </LinkButton>
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger className="inline-flex items-center justify-center rounded-full p-2 hover:bg-brand-navy/8 transition-colors">
+                <Menu className="h-5 w-5" />
+              </SheetTrigger>
+              <SheetContent side="right" className="w-72 bg-brand-surface">
+                <div className="flex flex-col gap-1 mt-8">
+                  <div className="px-4 pb-3">
+                    <div className="relative h-12 w-[176px]">
+                      <Image
+                        src="/images/brand/praiseworthy-wordmark.png"
+                        alt="Praise Worthy brand wordmark"
+                        fill
+                        className="object-contain object-left"
+                        sizes="176px"
+                      />
+                    </div>
+                  </div>
+                  <div className="mb-4 flex flex-wrap gap-2 px-4">
+                    {locales.map((code) => (
+                      <button
+                        key={code}
+                        type="button"
+                        onClick={() => handleLocaleChange(code)}
+                        className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
+                          locale === code
+                            ? "border-brand-navy bg-brand-navy text-brand-surface"
+                            : "border-brand-navy/15 text-brand-navy"
+                        }`}
+                      >
+                        {code === "zh" ? "中文" : code === "ko" ? "한국어" : code.toUpperCase()}
+                      </button>
+                    ))}
+                  </div>
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="px-4 py-3 text-base font-medium text-brand-text hover:text-brand-navy hover:bg-brand-navy/6 rounded-xl transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                  <div className="border-t mt-4 pt-4">
+                    <LinkButton
+                      href={PHONE_HREF}
+                      className="w-full rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber font-semibold"
+                    >
+                      <Phone className="h-4 w-4 mr-2" />
+                      {t.common.call} {PHONE_NUMBER}
+                    </LinkButton>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}

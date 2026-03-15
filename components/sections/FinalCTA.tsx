@@ -1,0 +1,94 @@
+"use client";
+
+import Image from "next/image";
+import { LinkButton } from "@/components/ui/link-button";
+import { Phone, Calendar, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/components/providers/LanguageProvider";
+
+const PHONE_HREF = "tel:+16823216387";
+
+export default function FinalCTA() {
+  const { t, locale } = useLanguage();
+  const ctaHeadlineClass =
+    locale === "zh"
+      ? "text-3xl sm:text-4xl md:text-[3rem]"
+      : locale === "ko"
+        ? "text-3xl sm:text-4xl md:text-[3.15rem]"
+        : locale === "es"
+          ? "text-3xl sm:text-4xl md:text-[3.25rem]"
+          : "text-3xl sm:text-4xl md:text-5xl";
+
+  return (
+    <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#1A2F22] to-[#233A2B]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.18),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(249,248,244,0.08),transparent_24%)]" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+          <div className="text-center lg:text-left">
+            <h2 className={`font-heading ${ctaHeadlineClass} font-bold text-white mb-6 leading-[1.06] text-balance`}>
+              {t.finalCta.titleLine1}
+              <br />
+              <span className="text-brand-orange">{t.finalCta.titleHighlight}</span>
+            </h2>
+
+            <p className="text-brand-surface/76 text-lg md:text-xl mb-8 max-w-2xl lg:mx-0 mx-auto leading-relaxed text-pretty">
+              {t.finalCta.description}
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 sm:gap-6 mb-8">
+              {t.finalCta.bullets.map((bullet) => (
+                <div key={bullet} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 py-2 text-brand-surface/82 text-sm md:text-base">
+                  <CheckCircle className="w-5 h-5 text-brand-orange" />
+                  <span>{bullet}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <LinkButton
+                href={PHONE_HREF}
+                size="lg"
+                className="rounded-full border border-brand-orange/35 bg-brand-orange hover:bg-brand-amber text-brand-navy text-lg px-10 py-7 font-bold shadow-xl animate-pulse-glow"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                {t.mobileBar.cta}
+              </LinkButton>
+              <LinkButton
+                href="#free-inspection"
+                size="lg"
+                variant="outline"
+                className="rounded-full border-2 border-white/18 text-white hover:bg-white/8 text-lg px-10 py-7 font-semibold"
+              >
+                <Calendar className="h-5 w-5 mr-2" />
+                {t.common.scheduleOnline}
+              </LinkButton>
+            </div>
+          </div>
+
+          <div className="mx-auto w-full max-w-md rounded-[30px] border border-white/10 bg-white/6 p-5 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.18)]">
+            <div className="relative aspect-[6/5] overflow-hidden rounded-[22px] bg-brand-surface/95">
+              <Image
+                src="/images/brand/cta-yard-sign.png"
+                alt={t.images.signAlt}
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 28vw, 90vw"
+              />
+            </div>
+            <div className="mt-4 rounded-[20px] border border-white/10 bg-brand-navy/70 px-5 py-4 text-sm text-brand-surface/72">
+              <div className="flex items-center justify-between gap-3">
+                <span className="font-medium text-brand-surface">Praise Worthy</span>
+                <span className="text-brand-orange">{t.roofingLabel}</span>
+              </div>
+              <div className="mt-2 text-xs uppercase tracking-[0.24em] text-brand-surface/54">
+                {t.common.craftsmanshipTagline}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
