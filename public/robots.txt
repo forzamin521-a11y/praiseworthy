@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://forzamin521-a11y.github.io/praiseworthy/sitemap.xml

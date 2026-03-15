@@ -1,4 +1,9 @@
-export const SITE_URL = "https://praiseworthyroofing.com";
+export const SITE_ORIGIN =
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://forzamin521-a11y.github.io";
+export const SITE_BASE_PATH =
+  process.env.NEXT_PUBLIC_SITE_BASE_PATH ??
+  (process.env.NODE_ENV === "production" ? "/praiseworthy" : "");
+export const SITE_URL = `${SITE_ORIGIN}${SITE_BASE_PATH}`;
 export const BUSINESS_NAME = "Praise Worthy";
 export const BUSINESS_ALT_NAME = "Praise Worthy Roofing";
 export const BUSINESS_PHONE = "682-321-6387";
@@ -21,3 +26,11 @@ export const SERVICE_AREAS = [
 
 export const BUSINESS_DESCRIPTION =
   "Praise Worthy provides free roof inspections, storm damage repair, hail damage assessment, and roofing services for homeowners in North Richland Hills and the DFW area.";
+
+export function withBasePath(path: string) {
+  if (!path.startsWith("/")) {
+    path = `/${path}`;
+  }
+
+  return `${SITE_BASE_PATH}${path}`;
+}

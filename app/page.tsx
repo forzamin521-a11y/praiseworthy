@@ -1,5 +1,10 @@
-import { redirect } from "next/navigation";
+import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import HomePage from "@/components/page/HomePage";
 
 export default function RootPage() {
-  redirect("/en");
+  return (
+    <LanguageProvider initialLocale="en">
+      <HomePage locale="en" />
+    </LanguageProvider>
+  );
 }

@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin } from "lucide-react";
 import { projectLocations } from "@/lib/i18n";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { withBasePath } from "@/lib/seo";
 
 function BeforeAfterSlider({
   beforeImg,
@@ -150,8 +151,8 @@ export default function BeforeAfter() {
           {projects.map((project) => (
             <BeforeAfterSlider
               key={project.location}
-              beforeImg={project.beforeImg}
-              afterImg={project.afterImg}
+              beforeImg={withBasePath(project.beforeImg)}
+              afterImg={withBasePath(project.afterImg)}
               beforePosition={project.beforePosition}
               afterPosition={project.afterPosition}
               location={project.location}

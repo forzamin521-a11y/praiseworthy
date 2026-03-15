@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: `${SITE_URL}/favicon.svg`, type: "image/svg+xml" },
+      { url: `${SITE_URL}/icon.svg`, type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.svg",
-    apple: "/icon.svg",
+    shortcut: `${SITE_URL}/favicon.svg`,
+    apple: `${SITE_URL}/icon.svg`,
   },
 };
 

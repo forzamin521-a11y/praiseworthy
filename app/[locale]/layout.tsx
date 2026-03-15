@@ -23,7 +23,7 @@ function isLocale(value: string): value is Locale {
 }
 
 function localePath(locale: Locale) {
-  return locale === "en" ? "/en" : `/${locale}`;
+  return locale === "en" ? `${SITE_URL}/en` : `${SITE_URL}/${locale}`;
 }
 
 export async function generateMetadata({
@@ -44,11 +44,11 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        en: "/en",
-        es: "/es",
-        zh: "/zh",
-        ko: "/ko",
-        "x-default": "/en",
+        en: `${SITE_URL}/en`,
+        es: `${SITE_URL}/es`,
+        zh: `${SITE_URL}/zh`,
+        ko: `${SITE_URL}/ko`,
+        "x-default": `${SITE_URL}/en`,
       },
     },
     robots: {
@@ -67,13 +67,11 @@ export async function generateMetadata({
       description: meta.description,
       type: "website",
       locale: meta.languageTag.replace("-", "_"),
-      url: `${SITE_URL}${canonical}`,
+      url: canonical,
       siteName: meta.siteName,
       images: [
         {
-          url: `${canonical}/opengraph-image`,
-          width: 1200,
-          height: 630,
+          url: `${SITE_URL}/images/social/social-card.svg`,
           alt: meta.ogAlt,
         },
       ],
@@ -82,7 +80,7 @@ export async function generateMetadata({
       card: "summary",
       title: meta.title,
       description: meta.description,
-      images: [`${canonical}/twitter-image`],
+      images: [`${SITE_URL}/images/social/social-card.svg`],
     },
     category: "home services",
   };
@@ -120,7 +118,7 @@ export default async function LocaleLayout({
             telephone: BUSINESS_PHONE_E164,
             email: BUSINESS_EMAIL,
             logo: `${SITE_URL}/brand-logo.svg`,
-            image: `${SITE_URL}/${locale}/opengraph-image`,
+            image: `${SITE_URL}/images/social/social-card.svg`,
             sameAs: [GOOGLE_MAPS_URL],
             hasMap: GOOGLE_MAPS_URL,
             geo: {
