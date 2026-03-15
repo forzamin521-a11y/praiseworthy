@@ -1,9 +1,8 @@
 "use client";
-
-import Image from "next/image";
 import { useRef } from "react";
 import { MapPin, Search, CloudLightning, MessageSquare } from "lucide-react";
 import { useInView } from "@/lib/hooks";
+import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export default function WhyChooseUs() {
@@ -72,12 +71,10 @@ export default function WhyChooseUs() {
           >
             <div className="mb-5 overflow-hidden rounded-[24px] bg-brand-surface/6">
               <div className="relative aspect-[5/4]">
-                <Image
-                  src="/images/brand/founder-ladder.png"
+                <img
+                  src={withBasePath("/images/brand/founder-ladder.png")}
                   alt={t.images.founderAlt}
-                  fill
-                  className="object-cover object-[center_20%]"
-                  sizes="(min-width: 1024px) 32vw, 100vw"
+                  className="h-full w-full object-cover object-[center_20%]"
                 />
               </div>
             </div>

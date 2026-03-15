@@ -1,8 +1,7 @@
 "use client";
-
-import Image from "next/image";
 import { LinkButton } from "@/components/ui/link-button";
 import { Phone, Calendar, CheckCircle } from "lucide-react";
+import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const PHONE_HREF = "tel:+16823216387";
@@ -69,12 +68,10 @@ export default function FinalCTA() {
 
           <div className="mx-auto w-full max-w-md rounded-[30px] border border-white/10 bg-white/6 p-5 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.18)]">
             <div className="relative aspect-[6/5] overflow-hidden rounded-[22px] bg-brand-surface/95">
-              <Image
-                src="/images/brand/cta-yard-sign.png"
+              <img
+                src={withBasePath("/images/brand/cta-yard-sign.png")}
                 alt={t.images.signAlt}
-                fill
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 28vw, 90vw"
+                className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="mt-4 rounded-[20px] border border-white/10 bg-brand-navy/70 px-5 py-4 text-sm text-brand-surface/72">

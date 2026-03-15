@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { LinkButton } from "@/components/ui/link-button";
 import {
@@ -17,6 +15,7 @@ import {
   BUSINESS_PHONE,
   BUSINESS_PHONE_E164,
   GOOGLE_MAPS_URL,
+  withBasePath,
 } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { cityNames } from "@/lib/i18n";
@@ -39,12 +38,10 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-2 md:col-span-1">
             <div className="relative mb-5 h-14 w-[184px]">
-              <Image
-                src="/images/brand/praiseworthy-wordmark.png"
+              <img
+                src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
                 alt="Praise Worthy brand wordmark"
-                fill
-                className="object-contain object-left brightness-0 invert"
-                sizes="184px"
+                className="h-full w-full object-contain object-left brightness-0 invert"
               />
             </div>
             <div className="space-y-3 text-sm text-brand-surface/72">

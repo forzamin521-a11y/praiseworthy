@@ -1,12 +1,11 @@
 "use client";
-
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { LinkButton } from "@/components/ui/link-button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Phone, Menu } from "lucide-react";
 import { locales } from "@/lib/i18n";
+import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const PHONE_NUMBER = "682-321-6387";
@@ -56,13 +55,10 @@ export default function Header() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 shrink-0">
             <div className="relative h-11 w-[150px] sm:h-12 sm:w-[172px]">
-              <Image
-                src="/images/brand/praiseworthy-wordmark.png"
+              <img
+                src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
                 alt="Praise Worthy brand wordmark"
-                fill
-                priority
-                className="object-contain object-left"
-                sizes="172px"
+                className="h-full w-full object-contain object-left"
               />
             </div>
           </a>
@@ -132,12 +128,10 @@ export default function Header() {
                 <div className="flex flex-col gap-1 mt-8">
                   <div className="px-4 pb-3">
                     <div className="relative h-12 w-[176px]">
-                      <Image
-                        src="/images/brand/praiseworthy-wordmark.png"
+                      <img
+                        src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
                         alt="Praise Worthy brand wordmark"
-                        fill
-                        className="object-contain object-left"
-                        sizes="176px"
+                        className="h-full w-full object-contain object-left"
                       />
                     </div>
                   </div>

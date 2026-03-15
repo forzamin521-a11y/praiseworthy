@@ -1,12 +1,10 @@
 "use client";
-
-import Image from "next/image";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/link-button";
 import { MapPin, CheckCircle } from "lucide-react";
 import { useInView } from "@/lib/hooks";
-import { BUSINESS_NAME, GOOGLE_MAPS_URL } from "@/lib/seo";
+import { BUSINESS_NAME, GOOGLE_MAPS_URL, withBasePath } from "@/lib/seo";
 import { cityNames } from "@/lib/i18n";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
@@ -41,12 +39,10 @@ export default function ServiceArea() {
           >
             <div className="overflow-hidden rounded-[28px] border border-brand-navy/8 bg-brand-surface shadow-[0_18px_40px_rgba(27,54,38,0.08)]">
               <div className="relative aspect-[16/9]">
-                <Image
-                  src="/images/brand/service-truck.png"
+                <img
+                  src={withBasePath("/images/brand/service-truck.png")}
                   alt={t.images.truckAlt}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
             </div>
