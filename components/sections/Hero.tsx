@@ -7,6 +7,8 @@ import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const PHONE_HREF = "tel:+16823216387";
+const SCHEDULE_HREF =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ01K4KNgIlF5_N0dcliaOX-17GpOsjDRKNjnDCZ_giIDfnAqaxLZY90DLEHQfXcTRKuNAtlZ1_v";
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -85,10 +87,11 @@ export default function Hero() {
               {t.mobileBar.cta}
             </LinkButton>
             <LinkButton
-              href="#free-inspection"
+              href={SCHEDULE_HREF}
+              target="_blank"
+              rel="noreferrer"
               size="lg"
-              variant="outline"
-              className="rounded-full border-2 border-brand-surface/24 text-brand-surface hover:bg-brand-surface/10 text-lg px-8 py-7 font-semibold backdrop-blur-sm"
+              className="rounded-full border border-brand-surface/55 bg-brand-surface text-brand-navy hover:bg-brand-amber hover:border-brand-amber text-lg px-8 py-7 font-semibold shadow-[0_16px_34px_rgba(12,24,18,0.22)]"
             >
               <Calendar className="h-5 w-5 mr-2" />
               {t.common.scheduleOnline}

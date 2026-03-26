@@ -36,8 +36,8 @@ jobs:
 
       - name: Build static site
         env:
-          NEXT_PUBLIC_SITE_ORIGIN: https://forzamin521-a11y.github.io
-          NEXT_PUBLIC_SITE_BASE_PATH: /praiseworthy
+          NEXT_PUBLIC_SITE_ORIGIN: https://www.praiseworthyroofing.com
+          NEXT_PUBLIC_SITE_BASE_PATH: ""
         run: npm run build
 
       - name: Add .nojekyll

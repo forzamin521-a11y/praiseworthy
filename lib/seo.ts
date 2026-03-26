@@ -1,8 +1,8 @@
 export const SITE_ORIGIN =
-  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://forzamin521-a11y.github.io";
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://www.praiseworthyroofing.com";
 export const SITE_BASE_PATH =
   process.env.NEXT_PUBLIC_SITE_BASE_PATH ??
-  (process.env.NODE_ENV === "production" ? "/praiseworthy" : "");
+  (process.env.NODE_ENV === "production" ? "" : "");
 export const SITE_URL = `${SITE_ORIGIN}${SITE_BASE_PATH}`;
 export const BUSINESS_NAME = "Praise Worthy";
 export const BUSINESS_ALT_NAME = "Praise Worthy Roofing";

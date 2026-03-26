@@ -5,6 +5,8 @@ import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 const PHONE_HREF = "tel:+16823216387";
+const SCHEDULE_HREF =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ01K4KNgIlF5_N0dcliaOX-17GpOsjDRKNjnDCZ_giIDfnAqaxLZY90DLEHQfXcTRKuNAtlZ1_v";
 
 export default function FinalCTA() {
   const { t, locale } = useLanguage();
@@ -55,10 +57,11 @@ export default function FinalCTA() {
                 {t.mobileBar.cta}
               </LinkButton>
               <LinkButton
-                href="#free-inspection"
+                href={SCHEDULE_HREF}
+                target="_blank"
+                rel="noreferrer"
                 size="lg"
-                variant="outline"
-                className="rounded-full border-2 border-white/18 text-white hover:bg-white/8 text-lg px-10 py-7 font-semibold"
+                className="rounded-full border border-brand-surface/55 bg-brand-surface text-brand-navy hover:bg-brand-amber hover:border-brand-amber text-lg px-10 py-7 font-semibold shadow-[0_16px_34px_rgba(12,24,18,0.22)]"
               >
                 <Calendar className="h-5 w-5 mr-2" />
                 {t.common.scheduleOnline}
