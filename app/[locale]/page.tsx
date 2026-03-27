@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import HomePage from "@/components/page/HomePage";
 import { locales, type Locale } from "@/lib/i18n";
+import { getLocaleUrl } from "@/lib/seo-routes";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -16,5 +17,5 @@ export default async function LocalizedHomePage({ params }: PageProps) {
     notFound();
   }
 
-  return <HomePage locale={locale} />;
+  return <HomePage locale={locale} pageUrl={getLocaleUrl(locale)} />;
 }

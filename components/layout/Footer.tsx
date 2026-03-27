@@ -22,6 +22,13 @@ import { cityNames } from "@/lib/i18n";
 
 const PHONE_NUMBER = BUSINESS_PHONE;
 const PHONE_HREF = `tel:${BUSINESS_PHONE_E164}`;
+const cityPageSlugs: Record<string, string> = {
+  "North Richland Hills": "/north-richland-hills/",
+  "Fort Worth": "/fort-worth/",
+  Keller: "/keller/",
+  Bedford: "/bedford/",
+  Arlington: "/arlington/",
+};
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -109,7 +116,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {serviceAreas.map((area) => (
                 <li key={area}>
-                  <span className="text-sm text-brand-surface/72">{area}</span>
+                  <a
+                    href={cityPageSlugs[area] ?? "#"}
+                    className="text-sm text-brand-surface/72 hover:text-brand-orange transition-colors"
+                  >
+                    {area}
+                  </a>
                 </li>
               ))}
             </ul>

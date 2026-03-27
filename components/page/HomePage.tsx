@@ -9,15 +9,21 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import Testimonials from "@/components/sections/Testimonials";
 import ServiceArea from "@/components/sections/ServiceArea";
+import SearchContent from "@/components/sections/SearchContent";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import { type Locale } from "@/lib/i18n";
 import { localeMeta } from "@/lib/seo-i18n";
 import { BUSINESS_ALT_NAME, BUSINESS_NAME, SERVICE_AREAS, SITE_URL } from "@/lib/seo";
 
-export default function HomePage({ locale }: { locale: Locale }) {
+export default function HomePage({
+  locale,
+  pageUrl,
+}: {
+  locale: Locale;
+  pageUrl: string;
+}) {
   const meta = localeMeta[locale];
-  const pageUrl = `${SITE_URL}/${locale}`;
 
   return (
     <>
@@ -28,9 +34,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "@id": `${pageUrl}#website`,
+              "@id": `${SITE_URL}#website`,
               inLanguage: meta.languageTag,
-              url: pageUrl,
+              url: SITE_URL,
               name: BUSINESS_NAME,
               alternateName: BUSINESS_ALT_NAME,
               description: meta.websiteDescription,
@@ -43,16 +49,45 @@ export default function HomePage({ locale }: { locale: Locale }) {
               url: pageUrl,
               name: meta.pageName,
               isPartOf: {
-                "@id": `${pageUrl}#website`,
+                "@id": `${SITE_URL}#website`,
               },
               about: {
-                "@id": `${pageUrl}#roofingcontractor`,
+                "@id": `${SITE_URL}#roofingcontractor`,
               },
               description: meta.description,
             },
             {
               "@context": "https://schema.org",
+              "@type": "Service",
+              "@id": `${pageUrl}#service`,
+              serviceType: meta.serviceTypes,
+              areaServed: SERVICE_AREAS.map((area) => ({
+                "@type": "City",
+                name: area,
+              })),
+              provider: {
+                "@id": `${SITE_URL}#roofingcontractor`,
+              },
+              availableChannel: {
+                "@type": "ServiceChannel",
+                serviceUrl: pageUrl,
+              },
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: meta.itemListName,
+                itemListElement: meta.serviceTypes.map((serviceType) => ({
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: serviceType,
+                  },
+                })),
+              },
+            },
+            {
+              "@context": "https://schema.org",
               "@type": "ItemList",
+              "@id": `${pageUrl}#serviceareas`,
               inLanguage: meta.languageTag,
               name: meta.itemListName,
               itemListElement: SERVICE_AREAS.map((area, index) => ({
@@ -74,6 +109,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
         <BeforeAfter />
         <Testimonials />
         <ServiceArea />
+        <SearchContent locale={locale} />
         <FAQ />
         <FinalCTA />
       </main>

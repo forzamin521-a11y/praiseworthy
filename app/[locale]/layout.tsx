@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { locales, type Locale } from "@/lib/i18n";
 import { localeMeta } from "@/lib/seo-i18n";
+import { getLanguageAlternates, getLocaleUrl } from "@/lib/seo-routes";
 import {
   BUSINESS_ALT_NAME,
   BUSINESS_EMAIL,
@@ -23,7 +24,7 @@ function isLocale(value: string): value is Locale {
 }
 
 function localePath(locale: Locale) {
-  return locale === "en" ? `${SITE_URL}/en` : `${SITE_URL}/${locale}`;
+  return getLocaleUrl(locale);
 }
 
 export async function generateMetadata({
@@ -43,13 +44,7 @@ export async function generateMetadata({
     keywords: meta.keywords,
     alternates: {
       canonical,
-      languages: {
-        en: `${SITE_URL}/en`,
-        es: `${SITE_URL}/es`,
-        zh: `${SITE_URL}/zh`,
-        ko: `${SITE_URL}/ko`,
-        "x-default": `${SITE_URL}/en`,
-      },
+      languages: getLanguageAlternates(),
     },
     robots: {
       index: true,
@@ -109,12 +104,12 @@ export default async function LocaleLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RoofingContractor",
-            "@id": `${SITE_URL}/${locale}#roofingcontractor`,
+            "@id": `${SITE_URL}#roofingcontractor`,
             inLanguage: meta.languageTag,
             name: BUSINESS_NAME,
             alternateName: BUSINESS_ALT_NAME,
             description: meta.businessDescription,
-            url: `${SITE_URL}/${locale}`,
+            url: canonical,
             telephone: BUSINESS_PHONE_E164,
             email: BUSINESS_EMAIL,
             logo: `${SITE_URL}/brand-logo.svg`,
@@ -149,6 +144,16 @@ export default async function LocaleLayout({
                 ],
                 opens: "08:00",
                 closes: "18:00",
+              },
+            ],
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                telephone: BUSINESS_PHONE_E164,
+                contactType: "customer service",
+                email: BUSINESS_EMAIL,
+                areaServed: "US-TX",
+                availableLanguage: ["English", "Spanish", "Chinese", "Korean"],
               },
             ],
             serviceType: meta.serviceTypes,

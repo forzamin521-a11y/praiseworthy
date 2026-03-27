@@ -8,6 +8,14 @@ import { BUSINESS_NAME, GOOGLE_MAPS_URL, withBasePath } from "@/lib/seo";
 import { cityNames } from "@/lib/i18n";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
+const cityPageSlugs: Record<string, string> = {
+  "North Richland Hills": "/north-richland-hills/",
+  "Fort Worth": "/fort-worth/",
+  Keller: "/keller/",
+  Bedford: "/bedford/",
+  Arlington: "/arlington/",
+};
+
 export default function ServiceArea() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { threshold: 0.2 });
@@ -49,8 +57,9 @@ export default function ServiceArea() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {cities.map((city, index) => (
-                <div
+                <a
                   key={city.name}
+                  href={cityPageSlugs[city.name] ?? "#"}
                   className={`flex min-h-[72px] items-center gap-2 p-4 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
                     city.primary
                       ? "bg-brand-navy text-brand-surface shadow-md"
@@ -64,7 +73,7 @@ export default function ServiceArea() {
                     }`}
                   />
                   <span className="font-medium text-sm">{city.name}</span>
-                </div>
+                </a>
               ))}
             </div>
           </div>

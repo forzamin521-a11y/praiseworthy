@@ -27,10 +27,22 @@ export const SERVICE_AREAS = [
 export const BUSINESS_DESCRIPTION =
   "Praise Worthy provides free roof inspections, storm damage repair, hail damage assessment, and roofing services for homeowners in North Richland Hills and the DFW area.";
 
+export function normalizeUrlPath(path: string) {
+  if (!path.startsWith("/")) {
+    path = `/${path}`;
+  }
+
+  return path === "/" ? path : `${path.replace(/\/+$/, "")}/`;
+}
+
 export function withBasePath(path: string) {
   if (!path.startsWith("/")) {
     path = `/${path}`;
   }
 
   return `${SITE_BASE_PATH}${path}`;
+}
+
+export function absoluteUrl(path = "/") {
+  return `${SITE_URL}${normalizeUrlPath(path)}`;
 }

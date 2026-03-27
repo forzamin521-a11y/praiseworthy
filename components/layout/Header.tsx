@@ -11,6 +11,10 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 const PHONE_NUMBER = "682-321-6387";
 const PHONE_HREF = "tel:+16823216387";
 
+function withOptionalHash(path: string, hash: string) {
+  return hash ? `${path}${hash}` : path;
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -25,15 +29,25 @@ export default function Header() {
   const handleLocaleChange = (nextLocale: (typeof locales)[number]) => {
     const hash = typeof window !== "undefined" ? window.location.hash : "";
     const segments = pathname.split("/").filter(Boolean);
-    if (segments[0] && locales.includes(segments[0] as (typeof locales)[number])) {
-      segments[0] = nextLocale;
-    } else {
-      segments.unshift(nextLocale);
+    if (segments.length === 0) {
+      setLocale(nextLocale);
+      setOpen(false);
+      router.push(withOptionalHash(`/${nextLocale}/`, hash));
+      return;
     }
 
-    setLocale(nextLocale);
-    setOpen(false);
-    router.push(`/${segments.join("/")}${hash}`);
+    if (segments[0] && locales.includes(segments[0] as (typeof locales)[number])) {
+      segments[0] = nextLocale;
+      setLocale(nextLocale);
+      setOpen(false);
+      router.push(withOptionalHash(`/${segments.join("/")}`, hash));
+      return;
+    } else {
+      setLocale(nextLocale);
+      setOpen(false);
+      router.push(withOptionalHash(`/${nextLocale}/`, hash));
+      return;
+    }
   };
 
   useEffect(() => {
