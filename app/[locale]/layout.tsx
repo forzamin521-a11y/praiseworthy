@@ -95,6 +95,7 @@ export default async function LocaleLayout({
   }
 
   const meta = localeMeta[locale];
+  const canonical = getLocaleUrl(locale);
 
   return (
     <LanguageProvider initialLocale={locale}>
