@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import WeChatQrButton from "@/components/contact/WeChatQrButton";
 import { LinkButton } from "@/components/ui/link-button";
 import { Phone, Calendar, CheckCircle } from "lucide-react";
 import { withBasePath } from "@/lib/seo";
@@ -49,14 +50,22 @@ export default function FinalCTA() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <LinkButton
-                href={PHONE_HREF}
-                size="lg"
-                className="rounded-full border border-brand-orange/35 bg-brand-orange hover:bg-brand-amber text-brand-navy text-lg px-10 py-7 font-bold shadow-xl animate-pulse-glow"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                {t.mobileBar.cta}
-              </LinkButton>
+              {locale === "zh" ? (
+                <WeChatQrButton
+                  label="微信联系"
+                  size="lg"
+                  className="rounded-full border border-brand-orange/35 bg-brand-orange px-10 py-7 text-lg font-bold text-brand-navy shadow-xl animate-pulse-glow hover:bg-brand-amber"
+                />
+              ) : (
+                <LinkButton
+                  href={PHONE_HREF}
+                  size="lg"
+                  className="rounded-full border border-brand-orange/35 bg-brand-orange hover:bg-brand-amber text-brand-navy text-lg px-10 py-7 font-bold shadow-xl animate-pulse-glow"
+                >
+                  <Phone className="h-5 w-5 mr-2" />
+                  {t.mobileBar.cta}
+                </LinkButton>
+              )}
               <LinkButton
                 href={SCHEDULE_HREF}
                 target="_blank"

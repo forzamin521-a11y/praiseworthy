@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import WeChatQrButton from "@/components/contact/WeChatQrButton";
 import { LinkButton } from "@/components/ui/link-button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Phone, Menu } from "lucide-react";
@@ -114,6 +115,14 @@ export default function Header() {
                 </button>
               ))}
             </div>
+            {locale === "zh" && (
+              <WeChatQrButton
+                label="微信联系"
+                size="sm"
+                className="rounded-full border border-brand-navy/12 bg-white/70 px-4 text-brand-navy hover:bg-brand-navy/8"
+                variant="outline"
+              />
+            )}
             <a
               href={PHONE_HREF}
               className="flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-text transition-colors"
@@ -132,14 +141,22 @@ export default function Header() {
 
           {/* Mobile: Phone + Hamburger */}
           <div className="flex md:hidden items-center gap-2">
-            <LinkButton
-              href={PHONE_HREF}
-              size="sm"
-              className="rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber"
-            >
-              <Phone className="h-4 w-4 mr-1" />
-              {t.common.call}
-            </LinkButton>
+            {locale === "zh" ? (
+              <WeChatQrButton
+                label="微信"
+                size="sm"
+                className="rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber"
+              />
+            ) : (
+              <LinkButton
+                href={PHONE_HREF}
+                size="sm"
+                className="rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber"
+              >
+                <Phone className="h-4 w-4 mr-1" />
+                {t.common.call}
+              </LinkButton>
+            )}
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger className="inline-flex items-center justify-center rounded-full p-2 hover:bg-brand-navy/8 transition-colors">
                 <Menu className="h-5 w-5" />
@@ -171,8 +188,8 @@ export default function Header() {
                       >
                         {code === "zh" ? "中文" : code === "ko" ? "한국어" : code.toUpperCase()}
                       </button>
-                    ))}
-                  </div>
+                  ))}
+                </div>
                   {navLinks.map((link) => (
                     <a
                       key={link.href}
@@ -184,13 +201,20 @@ export default function Header() {
                     </a>
                   ))}
                   <div className="border-t mt-4 pt-4">
-                    <LinkButton
-                      href={PHONE_HREF}
-                      className="w-full rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber font-semibold"
-                    >
-                      <Phone className="h-4 w-4 mr-2" />
-                      {t.common.call} {PHONE_NUMBER}
-                    </LinkButton>
+                    {locale === "zh" ? (
+                      <WeChatQrButton
+                        label="微信联系"
+                        className="w-full rounded-full border border-brand-orange/40 bg-brand-orange font-semibold text-brand-navy hover:bg-brand-amber"
+                      />
+                    ) : (
+                      <LinkButton
+                        href={PHONE_HREF}
+                        className="w-full rounded-full border border-brand-orange/40 bg-brand-orange text-brand-navy hover:bg-brand-amber font-semibold"
+                      >
+                        <Phone className="h-4 w-4 mr-2" />
+                        {t.common.call} {PHONE_NUMBER}
+                      </LinkButton>
+                    )}
                   </div>
                 </div>
               </SheetContent>
