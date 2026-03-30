@@ -56,6 +56,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.praiseworthyroofing.com/richland-hills/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.praiseworthyroofing.com/fort-worth/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -66,7 +71,57 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.praiseworthyroofing.com/euless/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/hurst/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.praiseworthyroofing.com/bedford/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/frisco/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/grapevine/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/southlake/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/carrollton/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/colleyville/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/plano/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/little-elm/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/richardson/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

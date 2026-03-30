@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobilePhoneButton from "@/components/layout/MobilePhoneButton";
@@ -93,10 +94,13 @@ export default function CityPage({ page }: { page: CityPageType }) {
       <main>
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
-            <img
+            <Image
               src={withBasePath("/images/brand/hero-truck-home.png")}
               alt={`${BUSINESS_NAME} roofing service truck near ${page.city}`}
-              className="h-full w-full object-cover object-center"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/96 via-brand-navy/86 to-brand-navy/52" />
           </div>

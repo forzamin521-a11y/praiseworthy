@@ -82,7 +82,9 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return locales
+    .filter((locale) => locale !== "en")
+    .map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/link-button";
@@ -46,10 +47,13 @@ export default function Hero() {
     <section className="relative w-full min-h-[90vh] flex flex-col justify-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src={withBasePath("/images/brand/hero-truck-home.png")}
           alt={t.images.heroAlt}
-          className="h-full w-full object-cover object-center"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/96 via-brand-navy/82 to-brand-navy/32" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_18%,rgba(197,160,89,0.18),transparent_24%),linear-gradient(180deg,rgba(249,248,244,0.08),rgba(0,0,0,0))]" />

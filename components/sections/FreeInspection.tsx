@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/link-button";
@@ -101,10 +102,12 @@ export default function FreeInspection() {
             style={{ animationDelay: "200ms" }}
           >
             <div className="relative rounded-[28px] overflow-hidden shadow-2xl aspect-[4/3] border border-brand-navy/8 bg-brand-surface">
-              <img
+              <Image
                 src={withBasePath("/images/brand/embroidered-shirt.png")}
                 alt={t.images.shirtAlt}
-                className="h-full w-full object-cover object-center"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/78 via-brand-navy/28 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">

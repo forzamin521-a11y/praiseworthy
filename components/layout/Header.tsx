@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { LinkButton } from "@/components/ui/link-button";
@@ -15,6 +16,26 @@ function withOptionalHash(path: string, hash: string) {
   return hash ? `${path}${hash}` : path;
 }
 
+function getLocaleDestination(
+  currentPath: string | null,
+  nextLocale: (typeof locales)[number],
+) {
+  const segments = (currentPath ?? "/").split("/").filter(Boolean);
+  const hasLocalePrefix =
+    segments[0] && locales.includes(segments[0] as (typeof locales)[number]);
+
+  if (!hasLocalePrefix) {
+    return nextLocale === "en" ? "/" : `/${nextLocale}/`;
+  }
+
+  const rest = segments.slice(1);
+  if (nextLocale === "en") {
+    return rest.length > 0 ? `/${rest.join("/")}` : "/";
+  }
+
+  return rest.length > 0 ? `/${nextLocale}/${rest.join("/")}` : `/${nextLocale}/`;
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -28,26 +49,9 @@ export default function Header() {
 
   const handleLocaleChange = (nextLocale: (typeof locales)[number]) => {
     const hash = typeof window !== "undefined" ? window.location.hash : "";
-    const segments = pathname.split("/").filter(Boolean);
-    if (segments.length === 0) {
-      setLocale(nextLocale);
-      setOpen(false);
-      router.push(withOptionalHash(`/${nextLocale}/`, hash));
-      return;
-    }
-
-    if (segments[0] && locales.includes(segments[0] as (typeof locales)[number])) {
-      segments[0] = nextLocale;
-      setLocale(nextLocale);
-      setOpen(false);
-      router.push(withOptionalHash(`/${segments.join("/")}`, hash));
-      return;
-    } else {
-      setLocale(nextLocale);
-      setOpen(false);
-      router.push(withOptionalHash(`/${nextLocale}/`, hash));
-      return;
-    }
+    setLocale(nextLocale);
+    setOpen(false);
+    router.push(withOptionalHash(getLocaleDestination(pathname, nextLocale), hash));
   };
 
   useEffect(() => {
@@ -69,10 +73,12 @@ export default function Header() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 shrink-0">
             <div className="relative h-11 w-[150px] sm:h-12 sm:w-[172px]">
-              <img
+              <Image
                 src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
                 alt="Praise Worthy brand wordmark"
-                className="h-full w-full object-contain object-left"
+                fill
+                sizes="(min-width: 640px) 172px, 150px"
+                className="object-contain object-left"
               />
             </div>
           </a>
@@ -142,10 +148,12 @@ export default function Header() {
                 <div className="flex flex-col gap-1 mt-8">
                   <div className="px-4 pb-3">
                     <div className="relative h-12 w-[176px]">
-                      <img
+                      <Image
                         src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
                         alt="Praise Worthy brand wordmark"
-                        className="h-full w-full object-contain object-left"
+                        fill
+                        sizes="176px"
+                        className="object-contain object-left"
                       />
                     </div>
                   </div>

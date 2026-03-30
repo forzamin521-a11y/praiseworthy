@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/link-button";
@@ -6,15 +7,8 @@ import { MapPin, CheckCircle } from "lucide-react";
 import { useInView } from "@/lib/hooks";
 import { BUSINESS_NAME, GOOGLE_MAPS_URL, withBasePath } from "@/lib/seo";
 import { cityNames } from "@/lib/i18n";
+import { cityPagePathsByCity } from "@/lib/city-pages";
 import { useLanguage } from "@/components/providers/LanguageProvider";
-
-const cityPageSlugs: Record<string, string> = {
-  "North Richland Hills": "/north-richland-hills/",
-  "Fort Worth": "/fort-worth/",
-  Keller: "/keller/",
-  Bedford: "/bedford/",
-  Arlington: "/arlington/",
-};
 
 export default function ServiceArea() {
   const ref = useRef<HTMLDivElement>(null);
@@ -47,10 +41,12 @@ export default function ServiceArea() {
           >
             <div className="overflow-hidden rounded-[28px] border border-brand-navy/8 bg-brand-surface shadow-[0_18px_40px_rgba(27,54,38,0.08)]">
               <div className="relative aspect-[16/9]">
-                <img
+                <Image
                   src={withBasePath("/images/brand/service-truck.png")}
                   alt={t.images.truckAlt}
-                  className="h-full w-full object-cover object-center"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center"
                 />
               </div>
             </div>
@@ -59,7 +55,7 @@ export default function ServiceArea() {
               {cities.map((city, index) => (
                 <a
                   key={city.name}
-                  href={cityPageSlugs[city.name] ?? "#"}
+                  href={cityPagePathsByCity[city.name]}
                   className={`flex min-h-[72px] items-center gap-2 p-4 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
                     city.primary
                       ? "bg-brand-navy text-brand-surface shadow-md"

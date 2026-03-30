@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { LinkButton } from "@/components/ui/link-button";
 import {
@@ -19,16 +20,10 @@ import {
 } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { cityNames } from "@/lib/i18n";
+import { cityPagePathsByCity } from "@/lib/city-pages";
 
 const PHONE_NUMBER = BUSINESS_PHONE;
 const PHONE_HREF = `tel:${BUSINESS_PHONE_E164}`;
-const cityPageSlugs: Record<string, string> = {
-  "North Richland Hills": "/north-richland-hills/",
-  "Fort Worth": "/fort-worth/",
-  Keller: "/keller/",
-  Bedford: "/bedford/",
-  Arlington: "/arlington/",
-};
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -45,10 +40,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-2 md:col-span-1">
             <div className="relative mb-5 h-14 w-[184px]">
-              <img
+              <Image
                 src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
                 alt="Praise Worthy brand wordmark"
-                className="h-full w-full object-contain object-left brightness-0 invert"
+                fill
+                sizes="184px"
+                className="object-contain object-left brightness-0 invert"
               />
             </div>
             <div className="space-y-3 text-sm text-brand-surface/72">
@@ -117,7 +114,7 @@ export default function Footer() {
               {serviceAreas.map((area) => (
                 <li key={area}>
                   <a
-                    href={cityPageSlugs[area] ?? "#"}
+                    href={cityPagePathsByCity[area]}
                     className="text-sm text-brand-surface/72 hover:text-brand-orange transition-colors"
                   >
                     {area}

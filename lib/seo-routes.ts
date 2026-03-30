@@ -6,12 +6,12 @@ export function getRootUrl() {
 }
 
 export function getLocaleUrl(locale: Locale) {
-  return locale === "en" ? absoluteUrl("/en") : absoluteUrl(`/${locale}`);
+  return locale === "en" ? getRootUrl() : absoluteUrl(`/${locale}`);
 }
 
 export function getLanguageAlternates() {
   return {
-    en: getLocaleUrl("en"),
+    en: getRootUrl(),
     es: getLocaleUrl("es"),
     zh: getLocaleUrl("zh"),
     ko: getLocaleUrl("ko"),
