@@ -3,17 +3,7 @@
   <url>
     <loc>https://www.praiseworthyroofing.com/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.praiseworthyroofing.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/en/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.praiseworthyroofing.com/es/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.praiseworthyroofing.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://www.praiseworthyroofing.com/ko/" />
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.praiseworthyroofing.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.praiseworthyroofing.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.praiseworthyroofing.com/es/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.praiseworthyroofing.com/zh/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.praiseworthyroofing.com/ko/" />
@@ -23,7 +13,7 @@
   <url>
     <loc>https://www.praiseworthyroofing.com/es/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.praiseworthyroofing.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.praiseworthyroofing.com/es/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.praiseworthyroofing.com/zh/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.praiseworthyroofing.com/ko/" />
@@ -33,7 +23,7 @@
   <url>
     <loc>https://www.praiseworthyroofing.com/zh/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.praiseworthyroofing.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.praiseworthyroofing.com/es/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.praiseworthyroofing.com/zh/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.praiseworthyroofing.com/ko/" />
@@ -43,7 +33,7 @@
   <url>
     <loc>https://www.praiseworthyroofing.com/ko/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.praiseworthyroofing.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.praiseworthyroofing.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.praiseworthyroofing.com/es/" />
     <xhtml:link rel="alternate" hreflang="zh" href="https://www.praiseworthyroofing.com/zh/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.praiseworthyroofing.com/ko/" />
@@ -129,5 +119,20 @@
     <loc>https://www.praiseworthyroofing.com/arlington/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/guides/hail-damage-roof-inspection-dfw/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/guides/roof-storm-damage-insurance-texas/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.praiseworthyroofing.com/guides/signs-of-wind-damage-on-your-roof/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
