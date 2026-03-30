@@ -19,9 +19,10 @@ export const localeMeta: Record<
 > = {
   en: {
     languageTag: "en-US",
-    title: "Praise Worthy | Roofing & Free Roof Inspection in North Richland Hills TX",
+    title:
+      "Free Roof Inspection in North Richland Hills | Hail & Storm Damage Help",
     description:
-      "Praise Worthy provides free roof inspections, storm damage repair, hail damage assessment, and residential roofing services for homeowners in North Richland Hills and across DFW.",
+      "Worried hail or wind damaged your roof? Praise Worthy offers free roof inspections, storm damage photos, and honest next-step guidance across North Richland Hills and DFW.",
     keywords: [
       "roof inspection North Richland Hills",
       "storm damage roof repair DFW",
@@ -54,9 +55,10 @@ export const localeMeta: Record<
   },
   es: {
     languageTag: "es-US",
-    title: "Praise Worthy | Inspección gratis de techo en North Richland Hills, TX",
+    title:
+      "Inspeccion gratis de techo en North Richland Hills | Danos por granizo y tormenta",
     description:
-      "Praise Worthy ofrece inspecciones gratis de techo, revisión de daños por tormenta y servicios residenciales de techos para propietarios en North Richland Hills y el área de DFW.",
+      "Cree que el granizo o el viento dano su techo? Praise Worthy ofrece inspecciones gratis, fotos del dano y orientacion clara para propietarios en North Richland Hills y DFW.",
     keywords: [
       "inspección de techo North Richland Hills",
       "daño por tormenta techo DFW",
@@ -89,9 +91,9 @@ export const localeMeta: Record<
   },
   zh: {
     languageTag: "zh-CN",
-    title: "Praise Worthy | North Richland Hills 免费屋顶检查",
+    title: "North Richland Hills 免费屋顶检查 | 冰雹与风暴损伤快速确认",
     description:
-      "Praise Worthy 为 North Richland Hills 和 DFW 地区业主提供免费屋顶检查、风暴损伤评估、冰雹损伤检查和住宅屋顶服务。",
+      "担心冰雹或大风损伤了屋顶？Praise Worthy 为 North Richland Hills 和 DFW 业主提供免费检查、损伤照片和清晰的下一步建议。",
     keywords: [
       "North Richland Hills 屋顶检查",
       "DFW 风暴屋顶损伤",
@@ -124,9 +126,10 @@ export const localeMeta: Record<
   },
   ko: {
     languageTag: "ko-KR",
-    title: "Praise Worthy | North Richland Hills 무료 지붕 점검",
+    title:
+      "North Richland Hills 무료 지붕 점검 | 우박 및 폭풍 피해 빠른 확인",
     description:
-      "Praise Worthy는 North Richland Hills와 DFW 지역 주택 소유주를 위해 무료 지붕 점검, 폭풍 피해 확인, 우박 피해 점검, 주택 지붕 서비스를 제공합니다.",
+      "우박이나 강풍으로 지붕이 손상됐을까 걱정되시나요? Praise Worthy는 North Richland Hills와 DFW 지역에서 무료 점검, 손상 사진, 명확한 다음 단계 안내를 제공합니다.",
     keywords: [
       "North Richland Hills 지붕 점검",
       "DFW 폭풍 지붕 피해",

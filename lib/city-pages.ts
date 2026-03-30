@@ -23,11 +23,11 @@ export const cityPages: CityPage[] = [
     city: "Fort Worth",
     title: "Roof Inspection and Roofing Services in Fort Worth, TX",
     metaTitle:
-      "Fort Worth Roof Inspection | Praise Worthy Roofing Contractor",
+      "Fort Worth Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage assessments, and residential roofing services for homeowners in Fort Worth, Texas.",
     metaDescription:
-      "Need a Fort Worth roof inspection after hail or wind damage? Praise Worthy offers free roof inspections and residential roofing services for Fort Worth homeowners.",
+      "Worried a Fort Worth storm damaged your roof? Get a free inspection, clear photos, and honest next-step guidance from Praise Worthy.",
     keywords: [
       "Fort Worth roof inspection",
       "roofing contractor Fort Worth TX",
@@ -71,11 +71,11 @@ export const cityPages: CityPage[] = [
     slug: "keller",
     city: "Keller",
     title: "Roof Inspection and Storm Damage Roofing in Keller, TX",
-    metaTitle: "Keller Roof Inspection | Free Storm Damage Check",
+    metaTitle: "Keller Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections, hail damage checks, and residential roofing services for homeowners in Keller, Texas.",
     metaDescription:
-      "Looking for a Keller roof inspection after hail or wind? Praise Worthy provides free inspections and local residential roofing service for Keller homeowners.",
+      "Think hail or wind may have damaged your Keller roof? Get a free inspection, photo documentation, and clear guidance from Praise Worthy.",
     keywords: [
       "Keller roof inspection",
       "roofing contractor Keller TX",
@@ -119,11 +119,11 @@ export const cityPages: CityPage[] = [
     slug: "bedford",
     city: "Bedford",
     title: "Bedford TX Roof Inspection and Residential Roofing Services",
-    metaTitle: "Bedford Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Bedford Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage assessments, and roofing support for homeowners in Bedford, Texas.",
     metaDescription:
-      "Schedule a Bedford roof inspection with Praise Worthy. We help homeowners check for storm, hail, and leak-related roof damage with free inspections.",
+      "Not sure if your Bedford roof took storm damage? Praise Worthy offers a free inspection, damage photos, and straightforward next-step advice.",
     keywords: [
       "Bedford roof inspection",
       "roofing contractor Bedford TX",
@@ -167,11 +167,11 @@ export const cityPages: CityPage[] = [
     slug: "euless",
     city: "Euless",
     title: "Euless TX Roof Inspection and Storm Damage Roofing Services",
-    metaTitle: "Euless Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Euless Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage evaluations, and residential roofing support for homeowners in Euless, Texas.",
     metaDescription:
-      "Need an Euless roof inspection after hail or wind? Praise Worthy offers free roof checks and local roofing support for Euless homeowners.",
+      "Worried hail or wind hit your Euless roof? Get a free inspection, clear findings, and honest local guidance from Praise Worthy.",
     keywords: [
       "Euless roof inspection",
       "roofing contractor Euless TX",
@@ -215,11 +215,11 @@ export const cityPages: CityPage[] = [
     slug: "arlington",
     city: "Arlington",
     title: "Arlington TX Roof Inspection for Storm and Hail Damage",
-    metaTitle: "Arlington Roof Inspection | Free Roofing Assessment",
+    metaTitle: "Arlington Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections and residential roofing support for homeowners in Arlington, Texas after hail, wind, and storm damage.",
     metaDescription:
-      "Need an Arlington roof inspection? Praise Worthy provides free roof checks for hail, wind, and storm damage for Arlington homeowners.",
+      "Think your Arlington roof may have storm damage? Praise Worthy offers free inspections, photo-backed findings, and no-pressure next steps.",
     keywords: [
       "Arlington roof inspection",
       "roofing contractor Arlington TX",
@@ -263,11 +263,11 @@ export const cityPages: CityPage[] = [
     slug: "hurst",
     city: "Hurst",
     title: "Hurst TX Roof Inspection and Storm Damage Roofing Services",
-    metaTitle: "Hurst Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Hurst Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage assessments, and residential roofing support for homeowners in Hurst, Texas.",
     metaDescription:
-      "Need a Hurst roof inspection after hail or wind? Praise Worthy offers free roof checks and local roofing support for Hurst homeowners.",
+      "Think hail or wind damaged your Hurst roof? Get a free inspection, clear photos, and honest recommendations from Praise Worthy.",
     keywords: [
       "Hurst roof inspection",
       "roofing contractor Hurst TX",
@@ -312,11 +312,11 @@ export const cityPages: CityPage[] = [
     city: "North Richland Hills",
     title: "North Richland Hills Roof Inspection and Roofing Services",
     metaTitle:
-      "North Richland Hills Roof Inspection | Praise Worthy Roofing",
+      "North Richland Hills Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, hail damage assessments, and residential roofing services in North Richland Hills, Texas.",
     metaDescription:
-      "Looking for a North Richland Hills roof inspection? Praise Worthy offers free roof checks and local roofing support for homeowners after hail and storm damage.",
+      "Worried your North Richland Hills roof took hail or wind damage? Get a free inspection, photo documentation, and clear next-step guidance.",
     keywords: [
       "North Richland Hills roof inspection",
       "roofing contractor North Richland Hills TX",
@@ -360,11 +360,11 @@ export const cityPages: CityPage[] = [
     slug: "richland-hills",
     city: "Richland Hills",
     title: "Richland Hills TX Roof Inspection and Storm Damage Roofing Services",
-    metaTitle: "Richland Hills Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Richland Hills Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage evaluations, and residential roofing support for homeowners in Richland Hills, Texas.",
     metaDescription:
-      "Need a Richland Hills roof inspection after hail or wind? Praise Worthy offers free roof checks and local roofing support for Richland Hills homeowners.",
+      "Not sure if a storm damaged your Richland Hills roof? Praise Worthy offers a free inspection, clear findings, and honest local guidance.",
     keywords: [
       "Richland Hills roof inspection",
       "roofing contractor Richland Hills TX",
@@ -408,11 +408,11 @@ export const cityPages: CityPage[] = [
     slug: "watauga",
     city: "Watauga",
     title: "Watauga TX Roof Inspection and Residential Roofing Support",
-    metaTitle: "Watauga Roof Inspection | Free Local Roofing Check",
+    metaTitle: "Watauga Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections, storm damage checks, and residential roofing support for homeowners in Watauga, Texas.",
     metaDescription:
-      "Looking for a Watauga roof inspection after wind or hail? Praise Worthy provides free inspections and local residential roofing support for Watauga homeowners.",
+      "Think hail or wind may have damaged your Watauga roof? Get a free inspection, photo documentation, and clear next-step advice.",
     keywords: [
       "Watauga roof inspection",
       "roofing contractor Watauga TX",
@@ -456,11 +456,11 @@ export const cityPages: CityPage[] = [
     slug: "frisco",
     city: "Frisco",
     title: "Frisco TX Roof Inspection and Residential Roofing Support",
-    metaTitle: "Frisco Roof Inspection | Free Roofing Assessment",
+    metaTitle: "Frisco Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections, storm damage roof assessments, and residential roofing support for homeowners in Frisco, Texas.",
     metaDescription:
-      "Looking for a Frisco roof inspection after hail or wind damage? Praise Worthy provides free inspections and residential roofing support for Frisco homeowners.",
+      "Worried your Frisco roof took hail or wind damage? Praise Worthy offers a free inspection, clear photos, and honest next-step guidance.",
     keywords: [
       "Frisco roof inspection",
       "roofing contractor Frisco TX",
@@ -504,11 +504,11 @@ export const cityPages: CityPage[] = [
     slug: "grapevine",
     city: "Grapevine",
     title: "Grapevine TX Roof Inspection and Residential Roofing Support",
-    metaTitle: "Grapevine Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Grapevine Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections, storm damage checks, and residential roofing support for homeowners in Grapevine, Texas.",
     metaDescription:
-      "Schedule a Grapevine roof inspection with Praise Worthy. We help homeowners check for hail, wind, and storm-related roof damage with a free inspection.",
+      "Think your Grapevine roof may have storm damage? Get a free inspection, photo-backed findings, and straightforward advice from Praise Worthy.",
     keywords: [
       "Grapevine roof inspection",
       "roofing contractor Grapevine TX",
@@ -552,11 +552,11 @@ export const cityPages: CityPage[] = [
     slug: "southlake",
     city: "Southlake",
     title: "Southlake TX Roof Inspection and High-End Residential Roofing",
-    metaTitle: "Southlake Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Southlake Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage evaluations, and residential roofing support for homeowners in Southlake, Texas.",
     metaDescription:
-      "Need a Southlake roof inspection after hail or wind? Praise Worthy offers free roof checks and local roofing support for Southlake homeowners.",
+      "Worried hail or wind hit your Southlake roof? Get a free inspection, detailed findings, and clear next-step guidance from Praise Worthy.",
     keywords: [
       "Southlake roof inspection",
       "roofing contractor Southlake TX",
@@ -600,11 +600,11 @@ export const cityPages: CityPage[] = [
     slug: "carrollton",
     city: "Carrollton",
     title: "Carrollton TX Roof Inspection for Storm and Hail Damage",
-    metaTitle: "Carrollton Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Carrollton Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage evaluations, and residential roofing support for homeowners in Carrollton, Texas.",
     metaDescription:
-      "Need a Carrollton roof inspection? Praise Worthy offers free roof checks for hail, wind, and storm damage for Carrollton homeowners.",
+      "Think your Carrollton roof may have storm damage? Praise Worthy offers a free inspection, clear photos, and honest local recommendations.",
     keywords: [
       "Carrollton roof inspection",
       "roofing contractor Carrollton TX",
@@ -648,11 +648,11 @@ export const cityPages: CityPage[] = [
     slug: "colleyville",
     city: "Colleyville",
     title: "Colleyville TX Roof Inspection and Storm Damage Roofing Services",
-    metaTitle: "Colleyville Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Colleyville Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections, storm damage assessments, and residential roofing support for homeowners in Colleyville, Texas.",
     metaDescription:
-      "Schedule a Colleyville roof inspection with Praise Worthy. We help homeowners check for hail, wind, and storm-related roof damage with free inspections.",
+      "Not sure if your Colleyville roof was hit by hail or wind? Get a free inspection, photo documentation, and clear guidance from Praise Worthy.",
     keywords: [
       "Colleyville roof inspection",
       "roofing contractor Colleyville TX",
@@ -696,11 +696,11 @@ export const cityPages: CityPage[] = [
     slug: "plano",
     city: "Plano",
     title: "Plano TX Roof Inspection and Roofing Services for Homeowners",
-    metaTitle: "Plano Roof Inspection | Free Local Roofing Check",
+    metaTitle: "Plano Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections, hail damage checks, and residential roofing support for homeowners in Plano, Texas.",
     metaDescription:
-      "Schedule a Plano roof inspection with Praise Worthy. We help homeowners check for hail, wind, and storm-related roof damage with a free inspection.",
+      "Worried a recent storm damaged your Plano roof? Praise Worthy offers a free inspection, clear findings, and no-pressure next steps.",
     keywords: [
       "Plano roof inspection",
       "roofing contractor Plano TX",
@@ -744,11 +744,11 @@ export const cityPages: CityPage[] = [
     slug: "little-elm",
     city: "Little Elm",
     title: "Little Elm TX Roof Inspection and Storm Damage Roofing Services",
-    metaTitle: "Little Elm Roof Inspection | Free Roofing Check",
+    metaTitle: "Little Elm Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy provides free roof inspections, storm damage evaluations, and residential roofing support for homeowners in Little Elm, Texas.",
     metaDescription:
-      "Need a Little Elm roof inspection after hail or wind? Praise Worthy offers free roof checks and local roofing support for Little Elm homeowners.",
+      "Think hail or wind may have damaged your Little Elm roof? Get a free inspection, photo-backed findings, and honest guidance from Praise Worthy.",
     keywords: [
       "Little Elm roof inspection",
       "roofing contractor Little Elm TX",
@@ -792,11 +792,11 @@ export const cityPages: CityPage[] = [
     slug: "richardson",
     city: "Richardson",
     title: "Richardson TX Roof Inspection and Residential Roofing Support",
-    metaTitle: "Richardson Roof Inspection | Praise Worthy Roofing",
+    metaTitle: "Richardson Roof Inspection | Free Hail & Storm Damage Check",
     description:
       "Praise Worthy offers free roof inspections, storm damage assessments, and residential roofing support for homeowners in Richardson, Texas.",
     metaDescription:
-      "Looking for a Richardson roof inspection after hail or wind damage? Praise Worthy provides free inspections and local roofing support for Richardson homeowners.",
+      "Worried your Richardson roof took storm damage? Praise Worthy offers a free inspection, clear photos, and straightforward next-step advice.",
     keywords: [
       "Richardson roof inspection",
       "roofing contractor Richardson TX",
