@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { cityNames, type Locale } from "@/lib/i18n";
 import { cityPagePathsByCity } from "@/lib/city-pages";
-import { guideArticles, getGuidePath } from "@/lib/guides";
+import { getGuide, getGuidePath, guideSlugs } from "@/lib/guides";
 
 const seoContent: Record<
   Locale,
@@ -14,6 +14,9 @@ const seoContent: Record<
     paragraphs: string[];
     bulletTitle: string;
     bullets: string[];
+    guidesEyebrow: string;
+    guidesTitle: string;
+    guideLabel: string;
   }
 > = {
   en: {
@@ -33,6 +36,9 @@ const seoContent: Record<
       "Roof damage documentation for insurance claims",
       "Leak risk checks after wind and hail events",
     ],
+    guidesEyebrow: "Helpful Guides",
+    guidesTitle: "Start with the topic that matches your biggest concern",
+    guideLabel: "Guide",
   },
   es: {
     eyebrow: "Apoyo local para techos",
@@ -51,6 +57,9 @@ const seoContent: Record<
       "Documentacion de dano para reclamos de seguro",
       "Revision de riesgo de filtraciones despues de viento o granizo",
     ],
+    guidesEyebrow: "Guias utiles",
+    guidesTitle: "Empiece con el tema que mas le preocupa hoy",
+    guideLabel: "Guia",
   },
   zh: {
     eyebrow: "本地屋顶服务支持",
@@ -69,6 +78,9 @@ const seoContent: Record<
       "保险理赔需要的屋顶损伤记录",
       "强风和冰雹后的渗漏风险检查",
     ],
+    guidesEyebrow: "实用指南",
+    guidesTitle: "先从最符合您当前担心的问题开始看",
+    guideLabel: "指南",
   },
   ko: {
     eyebrow: "지역 지붕 서비스 지원",
@@ -87,6 +99,9 @@ const seoContent: Record<
       "보험 청구용 지붕 손상 기록 정리",
       "강풍과 우박 이후 누수 위험 점검",
     ],
+    guidesEyebrow: "실용 가이드",
+    guidesTitle: "지금 가장 걱정되는 주제부터 확인해보세요",
+    guideLabel: "가이드",
   },
 };
 
@@ -147,31 +162,35 @@ export default function SearchContent({ locale }: { locale: Locale }) {
           <div className="mt-8 rounded-[28px] bg-brand-surface px-5 py-6 md:px-6">
             <div className="mb-5">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
-                Helpful Guides
+                {content.guidesEyebrow}
               </p>
               <h3 className="mt-2 font-heading text-2xl font-bold text-brand-text">
-                Start with the topic that matches your biggest concern
+                {content.guidesTitle}
               </h3>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3">
-              {guideArticles.map((guide) => (
-                <Link
-                  key={guide.slug}
-                  href={getGuidePath(guide.slug)}
-                  className="rounded-[24px] border border-brand-navy/8 bg-white px-5 py-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
-                    Guide
-                  </p>
-                  <h4 className="mt-3 font-heading text-xl font-bold text-brand-text">
-                    {guide.title}
-                  </h4>
-                  <p className="mt-3 text-sm leading-6 text-brand-muted">
-                    {guide.metaDescription}
-                  </p>
-                </Link>
-              ))}
+              {guideSlugs.map((slug) => {
+                const guide = getGuide(locale, slug);
+                if (!guide) return null;
+                return (
+                  <Link
+                    key={guide.slug}
+                    href={getGuidePath(guide.slug, locale)}
+                    className="rounded-[24px] border border-brand-navy/8 bg-white px-5 py-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
+                      {content.guideLabel}
+                    </p>
+                    <h4 className="mt-3 font-heading text-xl font-bold text-brand-text">
+                      {guide.title}
+                    </h4>
+                    <p className="mt-3 text-sm leading-6 text-brand-muted">
+                      {guide.metaDescription}
+                    </p>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>

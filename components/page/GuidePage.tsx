@@ -6,10 +6,12 @@ import GuideSectionNav from "@/components/guides/GuideSectionNav";
 import { LinkButton } from "@/components/ui/link-button";
 import {
   getGuideRelatedCities,
+  getGuidePath,
   getGuideUrl,
   getRelatedGuides,
   type GuideArticle,
 } from "@/lib/guides";
+import { type Locale } from "@/lib/i18n";
 import {
   BUSINESS_EMAIL,
   BUSINESS_NAME,
@@ -31,10 +33,70 @@ const PHONE_HREF = `tel:${BUSINESS_PHONE_E164}`;
 const SCHEDULE_HREF =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ01K4KNgIlF5_N0dcliaOX-17GpOsjDRKNjnDCZ_giIDfnAqaxLZY90DLEHQfXcTRKuNAtlZ1_v";
 
-export default function GuidePage({ guide }: { guide: GuideArticle }) {
-  const guideUrl = getGuideUrl(guide.slug);
+const guideUiCopy = {
+  en: {
+    call: "Call",
+    schedule: "Schedule a Free Inspection",
+    summary: "Quick Summary",
+    relatedAreas: "Related Service Areas",
+    relatedGuides: "More Helpful Guides",
+    readGuide: "Read guide",
+    commonQuestions: "Common Questions",
+    faqTitle: "Questions homeowners often ask",
+    bookInspection: "Book a free inspection",
+    roofInspectionIn: "Roof inspection in",
+  },
+  es: {
+    call: "Llamar",
+    schedule: "Agenda una inspeccion gratis",
+    summary: "Resumen rapido",
+    relatedAreas: "Zonas de servicio relacionadas",
+    relatedGuides: "Mas guias utiles",
+    readGuide: "Leer guia",
+    commonQuestions: "Preguntas comunes",
+    faqTitle: "Preguntas que suelen hacer los propietarios",
+    bookInspection: "Agenda una inspeccion gratis",
+    roofInspectionIn: "Inspeccion de techo en",
+  },
+  zh: {
+    call: "致电",
+    schedule: "预约免费检查",
+    summary: "快速总结",
+    relatedAreas: "相关服务区域",
+    relatedGuides: "更多实用指南",
+    readGuide: "查看指南",
+    commonQuestions: "常见问题",
+    faqTitle: "业主常问的问题",
+    bookInspection: "预约免费检查",
+    roofInspectionIn: "屋顶检查服务地区",
+  },
+  ko: {
+    call: "전화",
+    schedule: "무료 점검 예약하기",
+    summary: "빠른 요약",
+    relatedAreas: "관련 서비스 지역",
+    relatedGuides: "추가 가이드",
+    readGuide: "가이드 보기",
+    commonQuestions: "자주 묻는 질문",
+    faqTitle: "주택 소유주가 자주 묻는 질문",
+    bookInspection: "무료 점검 예약하기",
+    roofInspectionIn: "지붕 점검 지역",
+  },
+} as const;
+
+export default function GuidePage({
+  guide,
+  locale,
+}: {
+  guide: GuideArticle;
+  locale: Locale;
+}) {
+  const guideUrl = getGuideUrl(guide.slug, locale);
   const relatedCities = getGuideRelatedCities(guide);
-  const relatedGuides = getRelatedGuides(guide);
+  const relatedGuides = getRelatedGuides(locale, guide);
+  const ui = guideUiCopy[locale];
+  const homeInspectionHref =
+    locale === "en" ? "/#free-inspection" : `/${locale}/#free-inspection`;
 
   return (
     <>
@@ -121,7 +183,7 @@ export default function GuidePage({ guide }: { guide: GuideArticle }) {
                   className="rounded-full border border-brand-orange/35 bg-brand-orange px-8 py-7 text-lg font-bold text-brand-navy shadow-[0_18px_36px_rgba(17,33,24,0.28)]"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call {BUSINESS_PHONE}
+                  {ui.call} {BUSINESS_PHONE}
                 </LinkButton>
                 <LinkButton
                   href={SCHEDULE_HREF}
@@ -131,7 +193,7 @@ export default function GuidePage({ guide }: { guide: GuideArticle }) {
                   className="rounded-full border border-brand-surface/55 bg-brand-surface px-8 py-7 text-lg font-semibold text-brand-navy shadow-[0_16px_34px_rgba(12,24,18,0.22)]"
                 >
                   <Calendar className="mr-2 h-5 w-5" />
-                  Schedule a Free Inspection
+                  {ui.schedule}
                 </LinkButton>
               </div>
 
@@ -197,14 +259,14 @@ export default function GuidePage({ guide }: { guide: GuideArticle }) {
             <aside className="space-y-6">
               <section className="rounded-[32px] border border-brand-navy/8 bg-brand-navy px-6 py-6 text-brand-surface shadow-[0_18px_40px_rgba(27,54,38,0.08)]">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
-                  Quick Summary
+                  {ui.summary}
                 </p>
                 <p className="leading-7 text-brand-surface/84">{guide.summary}</p>
               </section>
 
               <section className="rounded-[32px] border border-brand-navy/8 bg-brand-surface px-6 py-6 shadow-[0_18px_40px_rgba(27,54,38,0.08)]">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
-                  Related Service Areas
+                  {ui.relatedAreas}
                 </p>
                 <div className="space-y-4">
                   {relatedCities.map((city) => (
@@ -218,7 +280,7 @@ export default function GuidePage({ guide }: { guide: GuideArticle }) {
                         {city.city}
                       </div>
                       <p className="font-heading text-xl font-bold text-brand-text">
-                        Roof inspection in {city.city}
+                        {ui.roofInspectionIn} {city.city}
                       </p>
                       <p className="mt-2 text-sm leading-6 text-brand-muted">
                         {city.description}
@@ -230,18 +292,18 @@ export default function GuidePage({ guide }: { guide: GuideArticle }) {
 
               <section className="rounded-[32px] border border-brand-navy/8 bg-white px-6 py-6 shadow-[0_18px_40px_rgba(27,54,38,0.08)]">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
-                  More Helpful Guides
+                  {ui.relatedGuides}
                 </p>
                 <div className="space-y-4">
                   {relatedGuides.map((item) => (
                     <Link
                       key={item.slug}
-                      href={`/guides/${item.slug}/`}
+                      href={getGuidePath(item.slug, locale)}
                       className="group block rounded-[24px] bg-brand-surface px-5 py-4 transition-all hover:-translate-y-0.5 hover:shadow-md"
                     >
                       <p className="font-semibold text-brand-text">{item.title}</p>
                       <div className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-navy">
-                        Read guide
+                        {ui.readGuide}
                         <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </div>
                     </Link>
@@ -258,17 +320,17 @@ export default function GuidePage({ guide }: { guide: GuideArticle }) {
               <div className="mb-8 flex items-end justify-between gap-4">
                 <div>
                   <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-brand-orange">
-                    Common Questions
+                    {ui.commonQuestions}
                   </p>
                   <h2 className="font-heading text-3xl font-bold text-brand-text md:text-4xl">
-                    Questions homeowners often ask
+                    {ui.faqTitle}
                   </h2>
                 </div>
                 <Link
-                  href="/#free-inspection"
+                  href={homeInspectionHref}
                   className="hidden text-sm font-semibold text-brand-navy hover:text-brand-text md:inline-flex md:items-center md:gap-2"
                 >
-                  Book a free inspection
+                  {ui.bookInspection}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

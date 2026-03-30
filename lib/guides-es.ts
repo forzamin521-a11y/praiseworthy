@@ -1,0 +1,62 @@
+export const guidesEs = {
+  "hail-damage-roof-inspection-dfw": {
+    title: "Como saber si el granizo dano su techo en DFW",
+    metaTitle: "Como saber si el granizo dano su techo en DFW | Guia de inspeccion gratis",
+    metaDescription: "No esta seguro si el granizo dano su techo en DFW? Aprenda las senales tempranas, que debe revisar una inspeccion y cuando pedir una revision gratis.",
+    eyebrow: "Guia util para propietarios",
+    intro: "El dano por granizo no siempre se nota desde la calle. Esta guia explica que senales conviene revisar en DFW y cuando tiene sentido pedir una inspeccion profesional.",
+    summary: "Una guia sencilla para detectar a tiempo problemas de techo relacionados con granizo y decidir cuando conviene programar una inspeccion.",
+    keywords: ["dano por granizo techo DFW", "como saber si el granizo dano el techo", "inspeccion gratis de techo DFW"],
+    keyPoints: ["El granizo puede acortar la vida del techo incluso antes de una filtracion.", "Los danos suelen verse primero en tejas, ventilaciones, tapajuntas y canaletas.", "Una inspeccion con fotos ayuda a saber si conviene reparar, reemplazar o solo vigilar."],
+    sections: [
+      { id: "what-hail-can-do", label: "Que Puede Pasar", title: "Como puede afectar el granizo a un techo", paragraphs: ["El granizo puede golpear tejas, aflojar granulos, agrietar materiales y debilitar zonas que desde abajo todavia parecen normales.", "En DFW tambien es comun ver marcas en ventilaciones, canaletas y piezas metalicas expuestas."], bullets: ["Tejas golpeadas", "Perdida de granulos", "Golpes en canaletas", "Zonas debiles que despues filtran"] },
+      { id: "signs-from-ground", label: "Que Revisar", title: "Senales que puede revisar desde el suelo", paragraphs: ["No necesita subirse al techo. Puede revisar canaletas, bajantes, pantallas, bordes del techo y cualquier parte visible desde un angulo seguro.", "Si hubo una tormenta fuerte y ve granulos, golpes o desgaste raro, vale la pena pedir una inspeccion."] },
+      { id: "inspection-includes", label: "Que Incluye", title: "Que deberia incluir una buena inspeccion por granizo", paragraphs: ["Una inspeccion util debe incluir fotos, una explicacion clara y orientacion honesta sobre si hace falta actuar ahora o seguir observando.", "La idea no es presionarlo para cambiar el techo, sino ayudarle a entender la condicion real."] },
+      { id: "when-to-schedule", label: "Cuando Agendar", title: "Cuando conviene programar una inspeccion", paragraphs: ["Si hubo granizo hace poco, si sus vecinos tambien estan revisando techos o si nota algo raro en la linea del techo, lo mas prudente suele ser revisarlo pronto.", "Detectar dano temprano le da mas tiempo para decidir con calma."] },
+    ],
+    faq: [
+      { question: "Puede haber dano por granizo aunque no exista una filtracion?", answer: "Si. Muchos techos muestran dano antes de que entre agua a la vivienda." },
+      { question: "Necesito subirme al techo para revisar?", answer: "No. Lo mas seguro es observar desde el suelo y pedir una inspeccion si algo le preocupa." },
+    ],
+  },
+  "roof-storm-damage-insurance-texas": {
+    title: "Como suele funcionar un reclamo de seguro por dano de techo en Texas",
+    metaTitle: "Guia de seguro por dano de techo en Texas | Que debe esperar un propietario",
+    metaDescription: "Aprenda como suelen funcionar los reclamos de seguro por dano de techo en Texas, que conviene documentar y como ayuda una inspeccion clara.",
+    eyebrow: "Guia util para propietarios",
+    intro: "Si una tormenta golpeo su techo y no sabe que hacer despues, esta guia explica el proceso con palabras sencillas para que pueda decidir con menos estres.",
+    summary: "Una guia en lenguaje claro sobre documentacion, inspeccion y lo que suelen encontrar los propietarios de Texas despues de una tormenta fuerte.",
+    keywords: ["seguro dano techo Texas", "reclamo seguro techo tormenta Texas", "inspeccion techo seguro DFW"],
+    keyPoints: ["El primer paso suele ser documentar lo ocurrido y revisar si hay dano visible.", "Una buena inspeccion ayuda a entender mejor la conversacion antes de hablar con el ajustador.", "Fotos claras y notas sencillas reducen confusion en el siguiente paso."],
+    sections: [
+      { id: "first-steps", label: "Primer Paso", title: "Que hacer primero despues de una tormenta", paragraphs: ["Primero asegurese de que la vivienda este bien y revise desde el suelo cualquier cambio visible.", "Si no hay una emergencia, lo mas util suele ser una inspeccion que documente claramente el dano visible antes de entrar en la conversacion del seguro."] },
+      { id: "what-to-document", label: "Que Documentar", title: "Que conviene guardar como registro", paragraphs: ["No necesita un sistema complicado. Unas cuantas fotos claras, la fecha de la tormenta y notas sobre lo que cambio ya ayudan bastante.", "Si hay inspeccion, las fotos del techo, tapajuntas y canaletas facilitan mucho la siguiente conversacion."], bullets: ["Fecha de la tormenta", "Dano visible afuera", "Cambios o filtraciones interiores", "Fotos de la inspeccion"] },
+      { id: "adjuster-process", label: "Revision Del Seguro", title: "Como suele verse la visita del ajustador", paragraphs: ["Cada caso es distinto, pero normalmente el ajustador revisa el dano reportado, inspecciona la propiedad y compara lo visible con la informacion del reclamo.", "Lo mas util es llegar a esa conversacion con una idea clara de lo que realmente se encontro en el techo."] },
+      { id: "where-inspection-helps", label: "Como Ayuda", title: "Por que una inspeccion clara sigue siendo importante", paragraphs: ["Algunos techos necesitan reparacion, otros reemplazo y otros solo vigilancia. Una inspeccion ayuda a diferenciar eso antes de tomar decisiones apresuradas.", "Tambien ayuda a quienes solo quieren orientacion honesta despues de la tormenta."] },
+    ],
+    faq: [
+      { question: "Conviene hablar con el seguro antes de la inspeccion?", answer: "Muchas personas se sienten mas seguras cuando primero entienden el estado visible del techo." },
+      { question: "Todo dano por tormenta implica un reclamo?", answer: "No siempre. Algunos techos requieren accion inmediata y otros solo seguimiento o reparaciones menores." },
+    ],
+  },
+  "signs-of-wind-damage-on-your-roof": {
+    title: "Senales de dano por viento en su techo despues de una tormenta en North Texas",
+    metaTitle: "Senales de dano por viento en su techo | Guia para propietarios de North Texas",
+    metaDescription: "Aprenda las senales mas comunes de dano por viento en un techo, que deben revisar los propietarios de North Texas y cuando conviene pedir una inspeccion.",
+    eyebrow: "Guia util para propietarios",
+    intro: "El dano por viento no siempre se ve grave al principio. Esta guia explica las senales mas comunes despues de una tormenta en North Texas y cuando conviene revisar el techo.",
+    summary: "Una guia practica para detectar a tiempo problemas de techo causados por viento y decidir cuando pedir una inspeccion local.",
+    keywords: ["senales dano por viento techo", "dano por viento techo North Texas", "inspeccion techo despues de viento"],
+    keyPoints: ["El viento suele aflojar tejas y bordes antes de que aparezca una filtracion.", "El dano puede verse como tejas levantadas, faltantes o zonas expuestas.", "Una inspeccion rapida despues de una tormenta fuerte puede evitar un problema mas costoso."],
+    sections: [
+      { id: "common-signs", label: "Senales Comunes", title: "Las senales mas comunes de dano por viento", paragraphs: ["Despues de una tormenta fuerte, el dano por viento suele verse como tejas levantadas, tapajuntas doblados, piezas faltantes o zonas expuestas.", "A veces tambien aparecen restos acumulados o lineas del techo que ya no se ven parejas."], bullets: ["Tejas levantadas", "Piezas faltantes", "Tapajuntas doblados", "Bordes desparejos"] },
+      { id: "subtle-warning-signs", label: "Senales Sutiles", title: "Cambios pequenos que muchos propietarios no notan", paragraphs: ["No siempre se nota a primera vista. A veces la primera senal es granulo en canaletas o una pequena mancha interior.", "Si esas senales aparecen despues de mucho viento, suele valer la pena revisar antes de la siguiente tormenta."] },
+      { id: "when-it-is-urgent", label: "Cuando Es Urgente", title: "Cuando conviene tomarlo como algo mas urgente", paragraphs: ["Si ya entra agua, faltan tejas o hay zonas expuestas visibles desde el suelo, lo mejor es actuar rapido.", "Aunque no haya filtracion, cambios visibles en bordes o remates tambien justifican una inspeccion oportuna."] },
+      { id: "what-inspection-checks", label: "Que Revisa", title: "Que suele revisar una inspeccion por dano de viento", paragraphs: ["La inspeccion suele revisar la superficie, bordes, tapajuntas, penetraciones y zonas con riesgo de filtracion.", "Tambien debe explicar de forma simple si hace falta actuar ya."] },
+    ],
+    faq: [
+      { question: "Puede el dano por viento causar filtraciones despues aunque hoy no haya agua?", answer: "Si. Tejas levantadas o bordes flojos pueden pasar desapercibidos al principio y luego dejar entrar agua." },
+      { question: "El dano por viento es distinto al dano por granizo?", answer: "Si. El granizo suele golpear materiales, mientras el viento los levanta, afloja o arranca." },
+    ],
+  },
+} as const;

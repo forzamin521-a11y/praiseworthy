@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import GuidePage from "@/components/page/GuidePage";
-import { getGuideMetadata, guideArticles, guideArticlesBySlug } from "@/lib/guides";
+import { getGuide, getGuideMetadata, guideSlugs } from "@/lib/guides";
 
 export function generateStaticParams() {
-  return guideArticles.map((guide) => ({ slug: guide.slug }));
+  return guideSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -14,13 +14,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const guide = guideArticlesBySlug[slug];
+  const guide = getGuide("en", slug);
 
   if (!guide) {
     return {};
   }
 
-  return getGuideMetadata(guide);
+  return getGuideMetadata(guide, "en");
 }
 
 export default async function GuideArticlePage({
@@ -29,7 +29,7 @@ export default async function GuideArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const guide = guideArticlesBySlug[slug];
+  const guide = getGuide("en", slug);
 
   if (!guide) {
     notFound();
@@ -37,7 +37,7 @@ export default async function GuideArticlePage({
 
   return (
     <LanguageProvider initialLocale="en">
-      <GuidePage guide={guide} />
+      <GuidePage guide={guide} locale="en" />
     </LanguageProvider>
   );
 }
