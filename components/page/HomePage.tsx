@@ -6,6 +6,7 @@ import StormAwareness from "@/components/sections/StormAwareness";
 import FreeInspection from "@/components/sections/FreeInspection";
 import InsuranceGuide from "@/components/sections/InsuranceGuide";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import KoreanRadioFeature from "@/components/sections/KoreanRadioFeature";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import Testimonials from "@/components/sections/Testimonials";
 import ServiceArea from "@/components/sections/ServiceArea";
@@ -106,6 +107,7 @@ export default function HomePage({
         <FreeInspection />
         <InsuranceGuide />
         <WhyChooseUs />
+        {locale === "ko" ? <KoreanRadioFeature /> : null}
         <BeforeAfter />
         <Testimonials />
         <ServiceArea />
