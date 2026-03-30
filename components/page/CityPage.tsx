@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobilePhoneButton from "@/components/layout/MobilePhoneButton";
 import { LinkButton } from "@/components/ui/link-button";
 import type { CityPage as CityPageType } from "@/lib/city-pages";
-import { cityPages, getCityPageUrl } from "@/lib/city-pages";
+import { getCityPagePath, getCityPageUrl, getRelatedCityPages } from "@/lib/city-pages";
 import {
   BUSINESS_EMAIL,
   BUSINESS_NAME,
@@ -22,8 +23,18 @@ const PHONE_HREF = `tel:${BUSINESS_PHONE_E164}`;
 const SCHEDULE_HREF =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ01K4KNgIlF5_N0dcliaOX-17GpOsjDRKNjnDCZ_giIDfnAqaxLZY90DLEHQfXcTRKuNAtlZ1_v";
 
+function matchesAreaLink(area: string, city: string) {
+  const normalizedArea = area.toLowerCase();
+  const normalizedCity = city.toLowerCase();
+
+  return (
+    normalizedArea.includes(normalizedCity) ||
+    normalizedCity.includes(normalizedArea)
+  );
+}
+
 export default function CityPage({ page }: { page: CityPageType }) {
-  const relatedCities = cityPages.filter((entry) => entry.slug !== page.slug).slice(0, 4);
+  const relatedCities = getRelatedCityPages(page);
   const pageUrl = getCityPageUrl(page.slug);
 
   return (
@@ -138,6 +149,18 @@ export default function CityPage({ page }: { page: CityPageType }) {
                 </LinkButton>
               </div>
 
+              <div className="flex flex-wrap gap-3 text-sm font-medium text-brand-surface/82">
+                <Link href="/#free-inspection" className="underline-offset-4 hover:text-white hover:underline">
+                  See how our free inspection works
+                </Link>
+                <Link href="/#local-roofing-services" className="underline-offset-4 hover:text-white hover:underline">
+                  Explore storm damage and insurance help
+                </Link>
+                <Link href="/#service-area" className="underline-offset-4 hover:text-white hover:underline">
+                  View all DFW service areas
+                </Link>
+              </div>
+
               <div className="flex flex-wrap gap-3">
                 {page.serviceBullets.map((item) => (
                   <div
@@ -189,7 +212,18 @@ export default function CityPage({ page }: { page: CityPageType }) {
                   {page.nearbyAreas.map((area) => (
                     <div key={area} className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-brand-orange" />
-                      <span>{area}</span>
+                      {relatedCities.some((item) => matchesAreaLink(area, item.city)) ? (
+                        <a
+                          href={getCityPagePath(
+                            relatedCities.find((item) => matchesAreaLink(area, item.city))!.slug,
+                          )}
+                          className="underline-offset-4 hover:text-white hover:underline"
+                        >
+                          {area}
+                        </a>
+                      ) : (
+                        <span>{area}</span>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -246,7 +280,7 @@ export default function CityPage({ page }: { page: CityPageType }) {
               {relatedCities.map((item) => (
                 <a
                   key={item.slug}
-                  href={`/${item.slug}/`}
+                  href={getCityPagePath(item.slug)}
                   className="group rounded-[28px] border border-brand-navy/8 bg-brand-surface p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
                 >
                   <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-brand-orange/90">

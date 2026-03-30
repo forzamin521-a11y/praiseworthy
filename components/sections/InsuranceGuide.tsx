@@ -18,7 +18,11 @@ export default function InsuranceGuide() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-brand-navy to-[#15281d]" ref={ref}>
+    <section
+      id="insurance-guide"
+      className="py-16 md:py-24 bg-gradient-to-b from-brand-navy to-[#15281d]"
+      ref={ref}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">

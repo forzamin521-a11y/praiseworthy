@@ -1,6 +1,7 @@
 "use client";
 
 import { cityNames, type Locale } from "@/lib/i18n";
+import { cityPagePathsByCity } from "@/lib/city-pages";
 
 const seoContent: Record<
   Locale,
@@ -127,9 +128,17 @@ export default function SearchContent({ locale }: { locale: Locale }) {
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-6 text-brand-surface/72">
-                {cityNames.join(", ")}
-              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {cityNames.map((city) => (
+                  <a
+                    key={city}
+                    href={cityPagePathsByCity[city]}
+                    className="rounded-full border border-white/12 bg-white/6 px-3 py-2 text-sm text-brand-surface/80 transition-colors hover:bg-white/12 hover:text-white"
+                  >
+                    {city}
+                  </a>
+                ))}
+              </div>
             </aside>
           </div>
         </div>

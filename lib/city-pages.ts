@@ -842,6 +842,16 @@ export const cityPagesBySlug = Object.fromEntries(
   cityPages.map((page) => [page.slug, page]),
 ) as Record<string, CityPage>;
 
+function matchesAreaToCity(area: string, city: string) {
+  const normalizedArea = area.toLowerCase();
+  const normalizedCity = city.toLowerCase();
+
+  return (
+    normalizedArea.includes(normalizedCity) ||
+    normalizedCity.includes(normalizedArea)
+  );
+}
+
 export function getCityPageUrl(slug: string) {
   return absoluteUrl(`/${slug}`);
 }
@@ -853,6 +863,33 @@ export function getCityPagePath(slug: string) {
 export const cityPagePathsByCity = Object.fromEntries(
   cityPages.map((page) => [page.city, getCityPagePath(page.slug)]),
 ) as Record<string, string>;
+
+export function getRelatedCityPages(page: CityPage, limit = 4) {
+  const relatedFromNearby = page.nearbyAreas
+    .map((area) =>
+      cityPages.find(
+        (candidate) =>
+          candidate.slug !== page.slug && matchesAreaToCity(area, candidate.city),
+      ),
+    )
+    .filter((candidate): candidate is CityPage => Boolean(candidate));
+
+  const uniqueRelated = Array.from(
+    new Map(relatedFromNearby.map((candidate) => [candidate.slug, candidate])).values(),
+  );
+
+  if (uniqueRelated.length >= limit) {
+    return uniqueRelated.slice(0, limit);
+  }
+
+  const fallbackPages = cityPages.filter(
+    (candidate) =>
+      candidate.slug !== page.slug &&
+      !uniqueRelated.some((related) => related.slug === candidate.slug),
+  );
+
+  return [...uniqueRelated, ...fallbackPages].slice(0, limit);
+}
 
 export function getCityPageMetadata(page: CityPage): Metadata {
   const url = getCityPageUrl(page.slug);
