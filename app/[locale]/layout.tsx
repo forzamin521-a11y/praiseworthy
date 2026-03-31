@@ -42,6 +42,9 @@ export async function generateMetadata({
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
+    other: {
+      "content-language": meta.languageTag,
+    },
     alternates: {
       canonical,
       languages: getLanguageAlternates(),
@@ -101,6 +104,11 @@ export default async function LocaleLayout({
 
   return (
     <LanguageProvider initialLocale={locale}>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang=${JSON.stringify(meta.languageTag)};`,
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

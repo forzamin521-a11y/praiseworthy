@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { locales, translations, type Locale } from "@/lib/i18n";
+import { localeMeta } from "@/lib/seo-i18n";
 
 type LanguageContextValue = {
   locale: Locale;
@@ -46,7 +47,7 @@ export function LanguageProvider({
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, locale);
-    document.documentElement.lang = locale;
+    document.documentElement.lang = localeMeta[locale].languageTag;
   }, [locale]);
 
   const value = useMemo(

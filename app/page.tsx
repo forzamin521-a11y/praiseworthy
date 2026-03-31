@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: localeMeta.en.title,
   description: localeMeta.en.description,
   keywords: localeMeta.en.keywords,
+  other: {
+    "content-language": localeMeta.en.languageTag,
+  },
   alternates: {
     canonical: getRootUrl(),
     languages: getLanguageAlternates(),

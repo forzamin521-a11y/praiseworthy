@@ -3,6 +3,7 @@ import { cityPagesBySlug, getCityPagePath } from "@/lib/city-pages";
 import { type Locale } from "@/lib/i18n";
 import { BUSINESS_NAME, SITE_URL, absoluteUrl } from "@/lib/seo";
 import { getGuideLocaleCopy } from "@/lib/guides-content";
+import { localeMeta } from "@/lib/seo-i18n";
 
 export type GuideSection = {
   id: string;
@@ -104,6 +105,9 @@ export function getGuideMetadata(guide: GuideArticle, locale: Locale): Metadata 
     title: guide.metaTitle,
     description: guide.metaDescription,
     keywords: guide.keywords,
+    other: {
+      "content-language": localeMeta[locale].languageTag,
+    },
     alternates: {
       canonical: url,
       languages: {

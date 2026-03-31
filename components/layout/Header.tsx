@@ -43,6 +43,7 @@ export default function Header() {
   const { locale, setLocale, t } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
+  const homeHref = locale === "en" ? "/" : `/${locale}/`;
   const navLinks = t.nav.map((label, index) => ({
     label,
     href: ["#free-inspection", "#why-choose-us", "#before-after", "#testimonials", "#service-area", "#faq"][index],
@@ -72,7 +73,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 shrink-0">
+          <a href={homeHref} className="flex items-center gap-3 shrink-0" aria-label="Go to homepage">
             <div className="relative h-11 w-[150px] sm:h-12 sm:w-[172px]">
               <Image
                 src={withBasePath("/images/brand/praiseworthy-wordmark.png")}

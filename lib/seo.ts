@@ -11,6 +11,8 @@ export const BUSINESS_PHONE_E164 = "+16823216387";
 export const BUSINESS_EMAIL = "info@praiseworthyroofing.com";
 export const GOOGLE_MAPS_URL =
   "https://www.google.com/maps/place/Praise+Worthy/@32.8602567,-97.2664166,13z/data=!3m1!4b1!4m6!3m5!1s0x6e0d6965cacc9bd1:0xcd3fdb4223065dc3!8m2!3d32.8602635!4d-97.225217!16s%2Fg%2F11mdfpbzgb?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D";
+export const FACEBOOK_URL = process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "";
+export const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "";
 
 export const SERVICE_AREAS = [
   "North Richland Hills",
@@ -46,3 +48,6 @@ export function withBasePath(path: string) {
 export function absoluteUrl(path = "/") {
   return `${SITE_URL}${normalizeUrlPath(path)}`;
 }
+
+export const PRIVACY_POLICY_PATH = "/privacy-policy/";
+export const TERMS_PATH = "/terms/";

@@ -12,10 +12,14 @@ import {
 } from "lucide-react";
 import {
   BUSINESS_EMAIL,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
   BUSINESS_NAME,
   BUSINESS_PHONE,
   BUSINESS_PHONE_E164,
   GOOGLE_MAPS_URL,
+  PRIVACY_POLICY_PATH,
+  TERMS_PATH,
   withBasePath,
 } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -32,6 +36,10 @@ export default function Footer() {
     href: ["#free-inspection", "#why-choose-us", "#before-after", "#testimonials", "#service-area", "#faq"][index],
   }));
   const serviceAreas = [...cityNames].slice(0, 6);
+  const socialLinks = [
+    { href: FACEBOOK_URL, label: "Facebook", icon: Facebook },
+    { href: INSTAGRAM_URL, label: "Instagram", icon: Instagram },
+  ].filter((item) => item.href);
 
   return (
     <footer className="bg-brand-navy text-brand-surface">
@@ -139,22 +147,26 @@ export default function Footer() {
               <Phone className="h-4 w-4 mr-2" />
               {t.common.freeInspection}
             </LinkButton>
-            <div className="flex gap-3 mt-4">
-              <a
-                href="#"
-                className="p-2 rounded-full bg-white/8 hover:bg-white/14 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 rounded-full bg-white/8 hover:bg-white/14 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-            </div>
+            {socialLinks.length > 0 && (
+              <div className="flex gap-3 mt-4">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-2 rounded-full bg-white/8 hover:bg-white/14 transition-colors"
+                      aria-label={social.label}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 
@@ -165,10 +177,16 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {BUSINESS_NAME} {t.footer.rightsReserved}
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-xs text-brand-surface/52 hover:text-brand-orange transition-colors">
+            <a
+              href={PRIVACY_POLICY_PATH}
+              className="text-xs text-brand-surface/52 hover:text-brand-orange transition-colors"
+            >
               {t.footer.privacyPolicy}
             </a>
-            <a href="#" className="text-xs text-brand-surface/52 hover:text-brand-orange transition-colors">
+            <a
+              href={TERMS_PATH}
+              className="text-xs text-brand-surface/52 hover:text-brand-orange transition-colors"
+            >
               {t.footer.termsOfService}
             </a>
           </div>

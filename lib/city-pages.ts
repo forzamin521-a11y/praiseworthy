@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BUSINESS_NAME, BUSINESS_PHONE, SITE_URL } from "@/lib/seo";
 import { absoluteUrl, normalizeUrlPath } from "@/lib/seo";
+import { localeMeta } from "@/lib/seo-i18n";
 
 export type CityPage = {
   slug: string;
@@ -898,6 +899,9 @@ export function getCityPageMetadata(page: CityPage): Metadata {
     title: page.metaTitle,
     description: page.metaDescription,
     keywords: page.keywords,
+    other: {
+      "content-language": localeMeta.en.languageTag,
+    },
     alternates: {
       canonical: url,
     },
