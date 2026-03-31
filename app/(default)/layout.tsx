@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css";
+import { localeMeta } from "@/lib/seo-i18n";
 import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -11,16 +12,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function DefaultRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="font-sans antialiased">
-        {children}
-      </body>
+    <html lang={localeMeta.en.languageTag} className="scroll-smooth">
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

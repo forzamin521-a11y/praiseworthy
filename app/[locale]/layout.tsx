@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/app/globals.css";
 import { notFound } from "next/navigation";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { locales, type Locale } from "@/lib/i18n";
@@ -39,6 +40,12 @@ export async function generateMetadata({
   const canonical = localePath(locale);
 
   return {
+    metadataBase: new URL(SITE_URL),
+    icons: {
+      icon: [{ url: "/icon.png", type: "image/png" }],
+      shortcut: [{ url: "/icon.png", type: "image/png" }],
+      apple: [{ url: "/apple-icon.png", type: "image/png" }],
+    },
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
@@ -103,77 +110,76 @@ export default async function LocaleLayout({
   const canonical = getLocaleUrl(locale);
 
   return (
-    <LanguageProvider initialLocale={locale}>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.documentElement.lang=${JSON.stringify(meta.languageTag)};`,
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "RoofingContractor",
-            "@id": `${SITE_URL}#roofingcontractor`,
-            inLanguage: meta.languageTag,
-            name: BUSINESS_NAME,
-            alternateName: BUSINESS_ALT_NAME,
-            description: meta.businessDescription,
-            url: canonical,
-            telephone: BUSINESS_PHONE_E164,
-            email: BUSINESS_EMAIL,
-            logo: `${SITE_URL}/brand-logo.svg`,
-            image: `${SITE_URL}/images/social/social-card.svg`,
-            sameAs: [GOOGLE_MAPS_URL],
-            hasMap: GOOGLE_MAPS_URL,
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: 32.8602635,
-              longitude: -97.225217,
-            },
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "North Richland Hills",
-              addressRegion: "TX",
-              addressCountry: "US",
-            },
-            areaServed: SERVICE_AREAS.map((area) => ({
-              "@type": "City",
-              name: area,
-            })),
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                ],
-                opens: "08:00",
-                closes: "18:00",
-              },
-            ],
-            contactPoint: [
-              {
-                "@type": "ContactPoint",
+    <html lang={meta.languageTag} className="scroll-smooth">
+      <body className="font-sans antialiased">
+        <LanguageProvider initialLocale={locale}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "RoofingContractor",
+                "@id": `${SITE_URL}#roofingcontractor`,
+                inLanguage: meta.languageTag,
+                name: BUSINESS_NAME,
+                alternateName: BUSINESS_ALT_NAME,
+                description: meta.businessDescription,
+                url: canonical,
                 telephone: BUSINESS_PHONE_E164,
-                contactType: "customer service",
                 email: BUSINESS_EMAIL,
-                areaServed: "US-TX",
-                availableLanguage: ["English", "Spanish", "Chinese", "Korean"],
-              },
-            ],
-            serviceType: meta.serviceTypes,
-            priceRange: "Free Inspection",
-            knowsAbout: meta.knowsAbout,
-          }),
-        }}
-      />
-      {children}
-    </LanguageProvider>
+                logo: `${SITE_URL}/brand-logo.svg`,
+                image: `${SITE_URL}/images/social/social-card.svg`,
+                sameAs: [GOOGLE_MAPS_URL],
+                hasMap: GOOGLE_MAPS_URL,
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: 32.8602635,
+                  longitude: -97.225217,
+                },
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "North Richland Hills",
+                  addressRegion: "TX",
+                  addressCountry: "US",
+                },
+                areaServed: SERVICE_AREAS.map((area) => ({
+                  "@type": "City",
+                  name: area,
+                })),
+                openingHoursSpecification: [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                    ],
+                    opens: "08:00",
+                    closes: "18:00",
+                  },
+                ],
+                contactPoint: [
+                  {
+                    "@type": "ContactPoint",
+                    telephone: BUSINESS_PHONE_E164,
+                    contactType: "customer service",
+                    email: BUSINESS_EMAIL,
+                    areaServed: "US-TX",
+                    availableLanguage: ["English", "Spanish", "Chinese", "Korean"],
+                  },
+                ],
+                serviceType: meta.serviceTypes,
+                priceRange: "Free Inspection",
+                knowsAbout: meta.knowsAbout,
+              }),
+            }}
+          />
+          {children}
+        </LanguageProvider>
+      </body>
+    </html>
   );
 }
