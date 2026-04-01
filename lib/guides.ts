@@ -38,6 +38,15 @@ const guideShared = {
   "hail-damage-roof-inspection-dfw": {
     relatedCitySlugs: ["north-richland-hills", "fort-worth", "keller"],
     relatedGuideSlugs: [
+      "roof-repair-near-me-north-richland-hills",
+      "roof-storm-damage-insurance-texas",
+      "signs-of-wind-damage-on-your-roof",
+    ],
+  },
+  "roof-repair-near-me-north-richland-hills": {
+    relatedCitySlugs: ["north-richland-hills", "richland-hills", "keller"],
+    relatedGuideSlugs: [
+      "hail-damage-roof-inspection-dfw",
       "roof-storm-damage-insurance-texas",
       "signs-of-wind-damage-on-your-roof",
     ],
@@ -46,6 +55,7 @@ const guideShared = {
     relatedCitySlugs: ["north-richland-hills", "bedford", "arlington"],
     relatedGuideSlugs: [
       "hail-damage-roof-inspection-dfw",
+      "roof-repair-near-me-north-richland-hills",
       "signs-of-wind-damage-on-your-roof",
     ],
   },
@@ -53,6 +63,7 @@ const guideShared = {
     relatedCitySlugs: ["hurst", "euless", "southlake"],
     relatedGuideSlugs: [
       "hail-damage-roof-inspection-dfw",
+      "roof-repair-near-me-north-richland-hills",
       "roof-storm-damage-insurance-texas",
     ],
   },

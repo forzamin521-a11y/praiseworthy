@@ -19,6 +19,31 @@ export const guidesZh = {
       { question: "我需要自己爬上屋顶检查吗？", answer: "不需要。更安全的做法是先从地面看明显迹象，再安排专业检查。" },
     ],
   },
+  "roof-repair-near-me-north-richland-hills": {
+    title: "North Richland Hills 附近屋顶维修该怎么找",
+    metaTitle: "North Richland Hills 屋顶维修 | 免费屋顶检查",
+    metaDescription: "如果您正在 North Richland Hills 寻找附近屋顶维修，这篇指南会说明常见问题、为什么要尽早处理，以及何时适合预约免费检查。",
+    eyebrow: "本地屋顶指南",
+    intro: "当业主搜索附近屋顶维修时，通常已经出现了漏水、风暴损伤，或者某个问题开始让人担心。这篇指南会用更容易理解的方式说明应该先看什么、为什么早一点处理更有利，以及检查能帮您弄清哪些事。",
+    summary: "一篇面向业主的本地指南，帮助了解 North Richland Hills 常见屋顶维修问题与下一步。",
+    keywords: ["North Richland Hills 附近屋顶维修", "North Richland Hills 屋顶漏水维修", "North Richland Hills 紧急屋顶维修", "North Richland Hills 屋顶公司"],
+    keyPoints: [
+      "漏水和瓦片损伤拖得越久，后续花费通常越高。",
+      "真正有帮助的维修，重点是找出原因，而不只是先把表面盖住。",
+      "本地检查能帮助业主判断是维修、继续观察，还是需要进一步更换规划。",
+    ],
+    sections: [
+      { id: "why-local-repair-searches-matter", label: "为什么重要", title: "为什么业主会搜索附近屋顶维修", paragraphs: ["大多数人不会无缘无故去搜索附近屋顶维修。通常是屋内出现水渍、暴风过后少了瓦片，或者某个地方突然看起来不对劲。", "这类搜索背后真正想知道的是：现在到底发生了什么、问题有多急、是应该马上修，还是先做一次更清楚的检查。"] },
+      { id: "common-roof-problems", label: "常见问题", title: "North Richland Hills 常见的屋顶维修问题", paragraphs: ["屋顶漏水、瓦片缺失或翘起、泛水损伤，以及风暴留下的磨损，都是业主最常见的本地维修原因。", "在 North Richland Hills 和周边 DFW 社区，冰雹和大风常常会留下起初不明显、但后面更贵的屋顶问题。"], bullets: ["天花板渗水和水渍", "缺失或翘起的瓦片", "泛水损伤", "风暴和冰雹损伤"] },
+      { id: "why-early-repair-helps", label: "尽早处理", title: "为什么小问题会慢慢变成大维修", paragraphs: ["屋顶上的小问题并不一定会一直小下去。松动的瓦片、细小裂缝或薄弱点，下一次降雨后就可能变成室内损伤、发霉风险，甚至更大范围维修。", "因此，在问题还没发展成明显大漏水之前，尽早确认屋顶状态通常更划算也更安心。"] },
+      { id: "repair-approach", label: "维修方式", title: "更好的维修流程为什么更能保护房子", paragraphs: ["有价值的维修不是只看表面症状，而是先了解屋顶整体状况。包括瓦片、泛水、边缘、排水路径，以及水是否已经从表层进入更深位置。", "这样业主就更容易知道问题是怎么来的、修补是否足够，以及哪些做法更能降低以后再次发生的机会。"] },
+      { id: "storm-damage-and-next-steps", label: "下一步", title: "当风暴损伤和保险问题也需要一起考虑时", paragraphs: ["有些维修是正常老化造成的，有些则发生在冰雹、大雨或大风之后。如果可能涉及风暴损伤，照片记录和清楚的检查说明会很有帮助。", "即使最后只需要维修而不是更换，一次本地检查也能让后续沟通和决定轻松很多。"] },
+    ],
+    faq: [
+      { question: "North Richland Hills 的屋顶漏水是不是一定代表整屋都要更换？", answer: "不一定。有些漏水来自局部损伤或泛水老化，有些才会指向更大的屋顶问题，检查后才能更清楚判断。" },
+      { question: "如果漏水看起来不大，还值得预约检查吗？", answer: "值得。小漏水也可能隐藏更大的问题，尤其是在风暴之后。" },
+    ],
+  },
   "roof-storm-damage-insurance-texas": {
     title: "Texas 屋顶风暴损伤保险流程通常是怎样的",
     metaTitle: "Texas 屋顶风暴损伤保险指南 | 业主通常会遇到什么",

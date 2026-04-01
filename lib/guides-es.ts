@@ -19,6 +19,31 @@ export const guidesEs = {
       { question: "Necesito subirme al techo para revisar?", answer: "No. Lo mas seguro es observar desde el suelo y pedir una inspeccion si algo le preocupa." },
     ],
   },
+  "roof-repair-near-me-north-richland-hills": {
+    title: "Reparacion de techo cerca de mi en North Richland Hills",
+    metaTitle: "Reparacion de techo en North Richland Hills, TX | Inspeccion gratis",
+    metaDescription: "Busca reparacion de techo cerca de usted en North Richland Hills? Conozca las senales importantes, los problemas mas comunes y cuando conviene pedir una inspeccion gratis.",
+    eyebrow: "Guia local de techos",
+    intro: "Cuando un propietario busca reparacion de techo cerca de mi, casi siempre ya hay una fuga, dano por tormenta o una preocupacion urgente. Esta guia explica que revisar, por que actuar temprano importa y como una inspeccion clara ayuda a tomar una mejor decision.",
+    summary: "Una guia local y facil de entender sobre fugas, dano por tormenta y reparaciones de techo en North Richland Hills.",
+    keywords: ["reparacion de techo North Richland Hills", "fuga de techo North Richland Hills", "reparacion urgente de techo North Richland Hills", "contratista de techos North Richland Hills TX"],
+    keyPoints: [
+      "Una fuga o una teja suelta suele costar mas si se deja pasar tiempo.",
+      "Una buena reparacion empieza por encontrar la causa, no solo tapar el sintoma.",
+      "Una inspeccion local ayuda a decidir si conviene reparar, vigilar o pensar en reemplazo.",
+    ],
+    sections: [
+      { id: "why-local-repair-searches-matter", label: "Por Que Importa", title: "Por que los propietarios buscan reparacion de techo cerca de mi", paragraphs: ["La mayoria de las personas no hace esa busqueda hasta que algo ya preocupa: una mancha en el techo interior, una teja faltante o un cambio visible despues del mal clima.", "Ese tipo de busqueda suele significar que el siguiente paso debe ser practico: entender que esta pasando, que tan urgente es y si hace falta reparar ahora o inspeccionar primero."] },
+      { id: "common-roof-problems", label: "Problemas Comunes", title: "Problemas de techo que suelen requerir reparacion en North Richland Hills", paragraphs: ["Las fugas, las tejas levantadas o faltantes, el dano en tapajuntas y el desgaste por tormenta son algunas de las razones mas comunes por las que un propietario busca ayuda local.", "En North Richland Hills y otras zonas de DFW, el granizo y el viento pueden dejar danos que al principio parecen pequenos, pero luego se vuelven mucho mas caros."], bullets: ["Fugas y manchas de agua", "Tejas sueltas o faltantes", "Tapajuntas danados", "Dano por granizo o tormenta"] },
+      { id: "why-early-repair-helps", label: "Actuar A Tiempo", title: "Por que un problema pequeno puede crecer rapido", paragraphs: ["Un detalle pequeno en el techo no siempre se queda pequeno. Una teja floja, una grieta o un punto debil puede terminar en dano interior, moho y un arreglo mucho mas amplio despues de la siguiente lluvia.", "Por eso conviene revisar el estado del techo temprano, antes de que el problema ya sea una filtracion seria o un gasto grande."] },
+      { id: "repair-approach", label: "Enfoque De Reparacion", title: "Como un mejor proceso de reparacion protege la casa por mas tiempo", paragraphs: ["Una buena reparacion comienza revisando la condicion general del techo, no solo el sintoma visible. Eso incluye tejas, tapajuntas, bordes, drenaje y zonas donde el agua podria estar entrando.", "Asi el propietario entiende mejor que ocasiono el problema, si basta con reparar y que ayuda a reducir que vuelva a pasar lo mismo."] },
+      { id: "storm-damage-and-next-steps", label: "Siguiente Paso", title: "Cuando el dano por tormenta y el seguro entran en la conversacion", paragraphs: ["Algunas reparaciones se deben al desgaste normal y otras aparecen justo despues de granizo, lluvia fuerte o viento. Cuando podria haber dano por tormenta, las fotos y notas claras ayudan mucho.", "Incluso si al final solo hace falta reparar y no reemplazar, una inspeccion local hace que el siguiente paso sea mucho mas claro y menos estresante."] },
+    ],
+    faq: [
+      { question: "Toda fuga en North Richland Hills significa reemplazar el techo?", answer: "No. Algunas fugas vienen de dano localizado o tapajuntas desgastados, mientras que otras si apuntan a un problema mayor. Una inspeccion ayuda a diferenciarlo." },
+      { question: "Vale la pena revisar el techo aunque la fuga parezca pequena?", answer: "Si. Una fuga pequena puede esconder un problema mayor, especialmente despues de una tormenta." },
+    ],
+  },
   "roof-storm-damage-insurance-texas": {
     title: "Como suele funcionar un reclamo de seguro por dano de techo en Texas",
     metaTitle: "Guia de seguro por dano de techo en Texas | Que debe esperar un propietario",

@@ -23,6 +23,31 @@ export const guidesEn = {
       { question: "Do I need to get on the roof myself to check for hail damage?", answer: "No. It is safer to look for visible storm signs from the ground and schedule a professional inspection if anything seems off." },
     ],
   },
+  "roof-repair-near-me-north-richland-hills": {
+    title: "Roof Repair Near Me in North Richland Hills, TX",
+    metaTitle: "Roof Repair Near Me in North Richland Hills, TX | Free Roof Inspection",
+    metaDescription: "Looking for roof repair near you in North Richland Hills? Learn what signs matter most, what local repairs often involve, and when to schedule a free inspection.",
+    eyebrow: "Local Roofing Guide",
+    intro: "When homeowners search for roof repair near me, they are usually dealing with a leak, storm damage, or a roofing problem that suddenly feels urgent. This guide explains what local homeowners should watch for, why early repair matters, and how a clear inspection helps you make a better decision.",
+    summary: "A customer-friendly local guide to roof leaks, storm damage, and repair questions in North Richland Hills.",
+    keywords: ["roof repair near me North Richland Hills", "roof leak repair North Richland Hills", "emergency roof repair North Richland Hills", "roofing contractor North Richland Hills TX"],
+    keyPoints: [
+      "Roof leaks and missing shingles often get more expensive the longer they sit.",
+      "A useful repair visit starts with finding the cause, not just covering the symptom.",
+      "A local inspection can help homeowners decide whether repair, monitoring, or replacement makes the most sense.",
+    ],
+    sections: [
+      { id: "why-local-repair-searches-matter", label: "Why It Matters", title: "Why homeowners search for roof repair near me", paragraphs: ["Most homeowners do not search for roof repair near me unless something already feels wrong. It may be a ceiling stain, a missing shingle after wind, or a section of the roof that suddenly looks different after a storm.", "That kind of search usually means the next step needs to be practical. Homeowners want to know what is happening, how urgent it is, and whether the roof needs repair now or a closer inspection first."] },
+      { id: "common-roof-problems", label: "Common Problems", title: "Common roof repair problems we help inspect in North Richland Hills", paragraphs: ["Roof leaks, lifted or missing shingles, flashing damage, and storm-related wear are some of the most common reasons homeowners start looking for local roof repair help.", "In North Richland Hills and nearby DFW neighborhoods, hail and wind often create damage that is easy to miss at first but becomes more expensive if it stays untreated."], bullets: ["Ceiling leaks and water stains", "Missing or lifted shingles", "Flashing wear around roof penetrations", "Storm and hail damage after severe weather"] },
+      { id: "why-early-repair-helps", label: "Why Early Repair Helps", title: "Why a small roof problem can turn into a bigger repair", paragraphs: ["Small roofing issues do not always stay small. A loose shingle, a cracked area, or a weak flashing point can turn into interior damage, mold risk, and a wider repair scope after the next storm.", "That is why many homeowners benefit from checking the roof condition early, even before the problem becomes a major leak or visible interior issue."] },
+      { id: "repair-approach", label: "Repair Approach", title: "How a better roof repair process protects the home longer", paragraphs: ["A good repair process starts by checking the full roof condition, not just the visible symptom. That means looking at shingles, flashing, roof edges, drainage paths, and areas where water may already be moving under the surface.", "From there, homeowners can get a clearer explanation of what caused the issue, whether a repair is enough, and what steps help reduce the chance of the same problem returning."] },
+      { id: "storm-damage-and-next-steps", label: "Next Steps", title: "When storm damage and insurance questions are part of the repair conversation", paragraphs: ["Some repairs follow normal aging, while others happen right after hail, heavy rain, or high wind. When storm damage may be involved, photo documentation and clear inspection notes help homeowners understand what to do next.", "Even when the answer is only a repair and not a replacement, a local inspection can make the next conversation much easier and less stressful."] },
+    ],
+    faq: [
+      { question: "Does every roof leak in North Richland Hills mean the whole roof needs replacement?", answer: "No. Some leaks come from localized damage or worn flashing, while others may point to a larger roof issue. A proper inspection helps sort that out." },
+      { question: "Is it worth scheduling a roof inspection even if the leak seems small?", answer: "Yes. Small leaks can hide a bigger issue, especially after storms, so early inspection often helps homeowners avoid a more expensive repair later." },
+    ],
+  },
   "roof-storm-damage-insurance-texas": {
     title: "How Roof Storm Damage Insurance Claims Usually Work in Texas",
     metaTitle: "Texas Roof Storm Damage Insurance Guide | What Homeowners Should Expect",
