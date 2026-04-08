@@ -17,6 +17,11 @@ function withOptionalHash(path: string, hash: string) {
   return hash ? `${path}${hash}` : path;
 }
 
+function normalizePathname(path: string | null) {
+  const value = path ?? "/";
+  return value.length > 1 ? value.replace(/\/+$/, "") : value;
+}
+
 function getLocaleDestination(
   currentPath: string | null,
   nextLocale: (typeof locales)[number],
@@ -44,10 +49,27 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const homeHref = locale === "en" ? "/" : `/${locale}/`;
-  const navLinks = t.nav.map((label, index) => ({
+  const guidesHref = locale === "en" ? "/guides/" : `/${locale}/guides/`;
+  const currentPath = normalizePathname(pathname);
+  const normalizedHomeHref = normalizePathname(homeHref);
+  const isHomePage = currentPath === normalizedHomeHref;
+  const sectionHashes = [
+    "#free-inspection",
+    "#why-choose-us",
+    "#before-after",
+    "#testimonials",
+    "#service-area",
+    "#faq",
+  ];
+  const sectionLinks = t.nav.map((label, index) => ({
     label,
-    href: ["#free-inspection", "#why-choose-us", "#before-after", "#testimonials", "#service-area", "#faq"][index],
+    href: isHomePage ? sectionHashes[index] : `${homeHref}${sectionHashes[index]}`,
   }));
+  const navLinks = [
+    sectionLinks[0],
+    { label: t.header.guidesLabel, href: guidesHref },
+    ...sectionLinks.slice(1),
+  ];
 
   const handleLocaleChange = (nextLocale: (typeof locales)[number]) => {
     const hash = typeof window !== "undefined" ? window.location.hash : "";

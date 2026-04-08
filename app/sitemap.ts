@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cityPages } from "@/lib/city-pages";
-import { guideSlugs, getGuidePath } from "@/lib/guides";
+import { guideSlugs, getGuidePath, getGuidesHubPath } from "@/lib/guides";
 import { locales, type Locale } from "@/lib/i18n";
 import { PRIVACY_POLICY_PATH, TERMS_PATH, absoluteUrl } from "@/lib/seo";
 
@@ -15,9 +15,29 @@ function getGuideAlternates(slug: string) {
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [
     { url: absoluteUrl("/"), changeFrequency: "weekly", priority: 1 },
+    {
+      url: absoluteUrl(getGuidesHubPath("en")),
+      changeFrequency: "weekly",
+      priority: 0.75,
+    },
     { url: absoluteUrl("/es/"), changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: absoluteUrl(getGuidesHubPath("es")),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
     { url: absoluteUrl("/zh/"), changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: absoluteUrl(getGuidesHubPath("zh")),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
     { url: absoluteUrl("/ko/"), changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: absoluteUrl(getGuidesHubPath("ko")),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
     ...cityPages.map((page) => ({
       url: absoluteUrl(`/${page.slug}/`),
       changeFrequency: "weekly" as const,

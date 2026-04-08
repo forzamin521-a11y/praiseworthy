@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { LinkButton } from "@/components/ui/link-button";
 import {
@@ -29,12 +30,36 @@ import { cityPagePathsByCity } from "@/lib/city-pages";
 const PHONE_NUMBER = BUSINESS_PHONE;
 const PHONE_HREF = `tel:${BUSINESS_PHONE_E164}`;
 
+function normalizePathname(path: string | null) {
+  const value = path ?? "/";
+  return value.length > 1 ? value.replace(/\/+$/, "") : value;
+}
+
 export default function Footer() {
-  const { t } = useLanguage();
-  const quickLinks = t.nav.map((label, index) => ({
+  const pathname = usePathname();
+  const { locale, t } = useLanguage();
+  const homeHref = locale === "en" ? "/" : `/${locale}/`;
+  const guidesHref = locale === "en" ? "/guides/" : `/${locale}/guides/`;
+  const currentPath = normalizePathname(pathname);
+  const normalizedHomeHref = normalizePathname(homeHref);
+  const isHomePage = currentPath === normalizedHomeHref;
+  const sectionHashes = [
+    "#free-inspection",
+    "#why-choose-us",
+    "#before-after",
+    "#testimonials",
+    "#service-area",
+    "#faq",
+  ];
+  const sectionLinks = t.nav.map((label, index) => ({
     label,
-    href: ["#free-inspection", "#why-choose-us", "#before-after", "#testimonials", "#service-area", "#faq"][index],
+    href: isHomePage ? sectionHashes[index] : `${homeHref}${sectionHashes[index]}`,
   }));
+  const quickLinks = [
+    sectionLinks[0],
+    { label: t.header.guidesLabel, href: guidesHref },
+    ...sectionLinks.slice(1),
+  ];
   const serviceAreas = [...cityNames].slice(0, 6);
   const socialLinks = [
     { href: FACEBOOK_URL, label: "Facebook", icon: Facebook },
