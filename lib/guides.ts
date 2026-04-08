@@ -75,6 +75,22 @@ const guideShared = {
       "roof-storm-damage-insurance-texas",
     ],
   },
+  "what-roof-adjusters-look-for-during-an-insurance-inspection": {
+    relatedCitySlugs: ["north-richland-hills", "fort-worth", "arlington"],
+    relatedGuideSlugs: [
+      "roof-storm-damage-insurance-texas",
+      "hail-damage-roof-inspection-dfw",
+      "signs-of-wind-damage-on-your-roof",
+    ],
+  },
+  "how-long-does-a-roof-inspection-take-in-dfw": {
+    relatedCitySlugs: ["north-richland-hills", "fort-worth", "bedford"],
+    relatedGuideSlugs: [
+      "hail-damage-roof-inspection-dfw",
+      "roof-repair-near-me-north-richland-hills",
+      "what-roof-adjusters-look-for-during-an-insurance-inspection",
+    ],
+  },
 } as const;
 
 export const guideSlugs = Object.keys(guideShared);
