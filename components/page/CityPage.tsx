@@ -15,6 +15,8 @@ import {
   BUSINESS_PHONE_E164,
   GOOGLE_MAPS_URL,
   SITE_URL,
+  createBreadcrumbSchema,
+  createFaqSchema,
   withBasePath,
 } from "@/lib/seo";
 import { Calendar, CheckCircle, ChevronRight, MapPin, Phone } from "lucide-react";
@@ -36,6 +38,11 @@ function matchesAreaLink(area: string, city: string) {
 export default function CityPage({ page }: { page: CityPageType }) {
   const relatedCities = getRelatedCityPages(page);
   const pageUrl = getCityPageUrl(page.slug);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", item: `${SITE_URL}/` },
+    { name: `${page.city} Roofing`, item: pageUrl },
+  ]);
+  const faqSchema = createFaqSchema(page.faq);
 
   return (
     <>
@@ -68,37 +75,9 @@ export default function CityPage({ page }: { page: CityPageType }) {
               ],
               url: pageUrl,
             },
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: `${SITE_URL}/`,
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: `${page.city} Roofing`,
-                  item: pageUrl,
-                },
-              ],
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: page.faq.map((item) => ({
-                "@type": "Question",
-                name: item.question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: item.answer,
-                },
-              })),
-            },
-          ]),
+            breadcrumbSchema,
+            faqSchema,
+          ].filter(Boolean)),
         }}
       />
       <Header />
@@ -106,8 +85,8 @@ export default function CityPage({ page }: { page: CityPageType }) {
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              src={withBasePath("/images/brand/hero-truck-home.png")}
-              alt={`${BUSINESS_NAME} roofing service truck near ${page.city}`}
+              src={withBasePath("/images/brand/hero-truck-home.webp")}
+              alt={`${BUSINESS_NAME} roofing inspection truck serving ${page.city} homeowners`}
               fill
               priority
               sizes="100vw"
@@ -149,7 +128,7 @@ export default function CityPage({ page }: { page: CityPageType }) {
                 </LinkButton>
               </div>
 
-              <div className="flex flex-wrap gap-3 text-sm font-medium text-brand-surface/82">
+              <nav aria-label={`${page.city} roofing quick links`} className="flex flex-wrap gap-3 text-sm font-medium text-brand-surface/82">
                 <Link href="/#free-inspection" className="underline-offset-4 hover:text-white hover:underline">
                   See how our free inspection works
                 </Link>
@@ -159,7 +138,10 @@ export default function CityPage({ page }: { page: CityPageType }) {
                 <Link href="/#service-area" className="underline-offset-4 hover:text-white hover:underline">
                   View all DFW service areas
                 </Link>
-              </div>
+                <Link href="/guides/" className="underline-offset-4 hover:text-white hover:underline">
+                  Read DFW roofing guides
+                </Link>
+              </nav>
 
               <div className="flex flex-wrap gap-3">
                 {page.serviceBullets.map((item) => (
@@ -213,14 +195,14 @@ export default function CityPage({ page }: { page: CityPageType }) {
                     <div key={area} className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-brand-orange" />
                       {relatedCities.some((item) => matchesAreaLink(area, item.city)) ? (
-                        <a
+                        <Link
                           href={getCityPagePath(
                             relatedCities.find((item) => matchesAreaLink(area, item.city))!.slug,
                           )}
                           className="underline-offset-4 hover:text-white hover:underline"
                         >
                           {area}
-                        </a>
+                        </Link>
                       ) : (
                         <span>{area}</span>
                       )}
@@ -240,7 +222,7 @@ export default function CityPage({ page }: { page: CityPageType }) {
               </h2>
               <div className="space-y-4">
                 {page.faq.map((item) => (
-                  <div
+                  <article
                     key={item.question}
                     className="rounded-[24px] border border-brand-navy/8 bg-brand-surface px-6 py-5"
                   >
@@ -248,7 +230,7 @@ export default function CityPage({ page }: { page: CityPageType }) {
                       {item.question}
                     </h3>
                     <p className="leading-7 text-brand-muted">{item.answer}</p>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
@@ -278,7 +260,7 @@ export default function CityPage({ page }: { page: CityPageType }) {
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {relatedCities.map((item) => (
-                <a
+                <Link
                   key={item.slug}
                   href={getCityPagePath(item.slug)}
                   className="group rounded-[28px] border border-brand-navy/8 bg-brand-surface p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
@@ -296,7 +278,7 @@ export default function CityPage({ page }: { page: CityPageType }) {
                     Visit page
                     <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
             <div className="mb-5 overflow-hidden rounded-[24px] bg-brand-surface/6">
               <div className="relative aspect-[5/4]">
                 <Image
-                  src={withBasePath("/images/brand/founder-ladder.png")}
+                  src={withBasePath("/images/brand/founder-ladder.webp")}
                   alt={t.images.founderAlt}
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/link-button";
@@ -42,7 +43,7 @@ export default function ServiceArea() {
             <div className="overflow-hidden rounded-[28px] border border-brand-navy/8 bg-brand-surface shadow-[0_18px_40px_rgba(27,54,38,0.08)]">
               <div className="relative aspect-[16/9]">
                 <Image
-                  src={withBasePath("/images/brand/service-truck.png")}
+                  src={withBasePath("/images/brand/service-truck.webp")}
                   alt={t.images.truckAlt}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -53,7 +54,7 @@ export default function ServiceArea() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {cities.map((city, index) => (
-                <a
+                <Link
                   key={city.name}
                   href={cityPagePathsByCity[city.name]}
                   className={`flex min-h-[72px] items-center gap-2 p-4 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
@@ -78,7 +79,7 @@ export default function ServiceArea() {
                       {t.common.homeowner} {t.roofingLabel}
                     </span>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

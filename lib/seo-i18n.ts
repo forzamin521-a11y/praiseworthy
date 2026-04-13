@@ -19,10 +19,9 @@ export const localeMeta: Record<
 > = {
   en: {
     languageTag: "en-US",
-    title:
-      "Free Roof Inspection in North Richland Hills | Hail & Storm Damage Help",
+    title: "Free Roof Inspection North Richland Hills | Praise Worthy",
     description:
-      "Worried hail or wind damaged your roof? Praise Worthy offers free roof inspections, storm damage photos, and honest next-step guidance across North Richland Hills and DFW.",
+      "Free roof inspections, storm damage photos, and honest guidance for homeowners in North Richland Hills, Fort Worth, and DFW.",
     keywords: [
       "roof inspection North Richland Hills",
       "storm damage roof repair DFW",

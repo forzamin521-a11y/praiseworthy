@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { LinkButton } from "@/components/ui/link-button";
@@ -74,8 +75,8 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="relative mb-5 h-14 w-[184px]">
               <Image
-                src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
-                alt="Praise Worthy brand wordmark"
+                src={withBasePath("/images/brand/praiseworthy-wordmark.webp")}
+                alt="Praise Worthy Roofing brand wordmark"
                 fill
                 sizes="184px"
                 className="object-contain object-left brightness-0 invert"
@@ -127,12 +128,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-brand-surface/72 hover:text-brand-orange transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -146,12 +147,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {serviceAreas.map((area) => (
                 <li key={area}>
-                  <a
+                  <Link
                     href={cityPagePathsByCity[area]}
                     className="text-sm text-brand-surface/72 hover:text-brand-orange transition-colors"
                   >
                     {area}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -202,18 +203,18 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {BUSINESS_NAME} {t.footer.rightsReserved}
           </p>
           <div className="flex gap-4">
-            <a
+            <Link
               href={PRIVACY_POLICY_PATH}
               className="text-xs text-brand-surface/52 hover:text-brand-orange transition-colors"
             >
               {t.footer.privacyPolicy}
-            </a>
-            <a
+            </Link>
+            <Link
               href={TERMS_PATH}
               className="text-xs text-brand-surface/52 hover:text-brand-orange transition-colors"
             >
               {t.footer.termsOfService}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

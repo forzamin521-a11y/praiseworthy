@@ -82,7 +82,7 @@ export default function FinalCTA() {
           <div className="mx-auto w-full max-w-md rounded-[30px] border border-white/10 bg-white/6 p-5 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.18)]">
             <div className="relative aspect-[6/5] overflow-hidden rounded-[22px] bg-brand-surface/95">
               <Image
-                src={withBasePath("/images/brand/cta-yard-sign.png")}
+                src={withBasePath("/images/brand/cta-yard-sign.webp")}
                 alt={t.images.signAlt}
                 fill
                 sizes="(min-width: 1024px) 448px, 100vw"

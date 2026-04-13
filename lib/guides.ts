@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import { cityPagesBySlug, getCityPagePath } from "@/lib/city-pages";
 import { type Locale } from "@/lib/i18n";
-import { BUSINESS_NAME, SITE_URL, absoluteUrl } from "@/lib/seo";
+import {
+  BUSINESS_AUTHOR_NAME,
+  BUSINESS_NAME,
+  SITE_PUBLISHED_AT,
+  SITE_URL,
+  SITE_UPDATED_AT,
+  absoluteUrl,
+  getAuthorMetadata,
+  getDefaultRobots,
+  getSocialMetadata,
+} from "@/lib/seo";
 import { getGuideLocaleCopy } from "@/lib/guides-content";
 import { localeMeta } from "@/lib/seo-i18n";
 
@@ -32,6 +42,8 @@ export type GuideArticle = {
   relatedCitySlugs: string[];
   relatedGuideSlugs: string[];
   faq: GuideFaq[];
+  publishedAt: string;
+  updatedAt: string;
 };
 
 type GuidesHubCopy = {
@@ -198,6 +210,8 @@ export function getGuide(locale: Locale, slug: string): GuideArticle | null {
     faq: localized.faq.map((item) => ({ ...item })),
     relatedCitySlugs: [...shared.relatedCitySlugs],
     relatedGuideSlugs: [...shared.relatedGuideSlugs],
+    publishedAt: SITE_PUBLISHED_AT,
+    updatedAt: SITE_UPDATED_AT,
   };
 }
 
@@ -216,6 +230,7 @@ export function getGuidesHubMetadata(locale: Locale): Metadata {
   const url = getGuidesHubUrl(locale);
 
   return {
+    ...getAuthorMetadata(),
     title: hub.metaTitle,
     description: hub.metaDescription,
     keywords: hub.keywords,
@@ -232,36 +247,14 @@ export function getGuidesHubMetadata(locale: Locale): Metadata {
         "x-default": getGuidesHubUrl("en"),
       },
     },
-    openGraph: {
+    ...getSocialMetadata({
       title: hub.metaTitle,
       description: hub.metaDescription,
-      type: "website",
       url,
       siteName: BUSINESS_NAME,
-      images: [
-        {
-          url: `${SITE_URL}/images/social/social-card.svg`,
-          alt: hub.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary",
-      title: hub.metaTitle,
-      description: hub.metaDescription,
-      images: [`${SITE_URL}/images/social/social-card.svg`],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
+      imageAlt: hub.title,
+    }),
+    robots: getDefaultRobots(),
   };
 }
 
@@ -269,12 +262,10 @@ export function getGuideMetadata(guide: GuideArticle, locale: Locale): Metadata 
   const url = getGuideUrl(guide.slug, locale);
 
   return {
+    ...getAuthorMetadata(),
     title: guide.metaTitle,
     description: guide.metaDescription,
     keywords: guide.keywords,
-    other: {
-      "content-language": localeMeta[locale].languageTag,
-    },
     alternates: {
       canonical: url,
       languages: {
@@ -285,36 +276,22 @@ export function getGuideMetadata(guide: GuideArticle, locale: Locale): Metadata 
         "x-default": getGuideUrl(guide.slug, "en"),
       },
     },
-    openGraph: {
+    ...getSocialMetadata({
       title: guide.metaTitle,
       description: guide.metaDescription,
-      type: "article",
       url,
       siteName: BUSINESS_NAME,
-      images: [
-        {
-          url: `${SITE_URL}/images/social/social-card.svg`,
-          alt: guide.title,
-        },
-      ],
+      type: "article",
+      imageAlt: guide.title,
+    }),
+    authors: [{ name: BUSINESS_AUTHOR_NAME, url: SITE_URL }],
+    other: {
+      "content-language": localeMeta[locale].languageTag,
+      "article:published_time": guide.publishedAt,
+      "article:modified_time": guide.updatedAt,
+      "article:author": BUSINESS_AUTHOR_NAME,
     },
-    twitter: {
-      card: "summary",
-      title: guide.metaTitle,
-      description: guide.metaDescription,
-      images: [`${SITE_URL}/images/social/social-card.svg`],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
+    robots: getDefaultRobots(),
   };
 }
 

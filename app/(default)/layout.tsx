@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import { localeMeta } from "@/lib/seo-i18n";
-import { SITE_URL } from "@/lib/seo";
+import {
+  BUSINESS_ALT_NAME,
+  BUSINESS_AUTHOR_NAME,
+  BUSINESS_EMAIL,
+  BUSINESS_NAME,
+  BUSINESS_PHONE_E164,
+  GOOGLE_MAPS_URL,
+  SERVICE_AREAS,
+  SITE_PUBLISHED_AT,
+  SITE_UPDATED_AT,
+  SITE_URL,
+  getMetadataBase,
+  getSameAsLinks,
+} from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: getMetadataBase(),
+  referrer: "strict-origin-when-cross-origin",
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     shortcut: [{ url: "/icon.png", type: "image/png" }],
@@ -19,7 +33,55 @@ export default function DefaultRootLayout({
 }>) {
   return (
     <html lang={localeMeta.en.languageTag} className="scroll-smooth">
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "@id": `${SITE_URL}#organization`,
+                name: BUSINESS_NAME,
+                alternateName: BUSINESS_ALT_NAME,
+                url: SITE_URL,
+                logo: `${SITE_URL}/brand-logo.svg`,
+                image: `${SITE_URL}/images/social/social-card.svg`,
+                email: BUSINESS_EMAIL,
+                telephone: BUSINESS_PHONE_E164,
+                sameAs: getSameAsLinks(),
+                foundingDate: SITE_PUBLISHED_AT,
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "RoofingContractor",
+                "@id": `${SITE_URL}#roofingcontractor`,
+                inLanguage: localeMeta.en.languageTag,
+                name: BUSINESS_NAME,
+                alternateName: BUSINESS_ALT_NAME,
+                description: localeMeta.en.businessDescription,
+                url: SITE_URL,
+                telephone: BUSINESS_PHONE_E164,
+                email: BUSINESS_EMAIL,
+                logo: `${SITE_URL}/brand-logo.svg`,
+                image: `${SITE_URL}/images/social/social-card.svg`,
+                sameAs: getSameAsLinks(),
+                hasMap: GOOGLE_MAPS_URL,
+                founder: {
+                  "@type": "Organization",
+                  name: BUSINESS_AUTHOR_NAME,
+                },
+                areaServed: SERVICE_AREAS.map((area) => ({
+                  "@type": "City",
+                  name: area,
+                })),
+                dateModified: SITE_UPDATED_AT,
+              },
+            ]),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

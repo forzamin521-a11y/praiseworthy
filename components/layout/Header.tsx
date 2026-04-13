@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import WeChatQrButton from "@/components/contact/WeChatQrButton";
@@ -95,17 +96,17 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href={homeHref} className="flex items-center gap-3 shrink-0" aria-label="Go to homepage">
+          <Link href={homeHref} className="flex items-center gap-3 shrink-0" aria-label="Go to homepage">
             <div className="relative h-11 w-[150px] sm:h-12 sm:w-[172px]">
               <Image
-                src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
-                alt="Praise Worthy brand wordmark"
+                src={withBasePath("/images/brand/praiseworthy-wordmark.webp")}
+                alt="Praise Worthy Roofing brand wordmark"
                 fill
                 sizes="(min-width: 640px) 172px, 150px"
                 className="object-contain object-left"
               />
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1 rounded-full border border-brand-navy/8 bg-white/40 px-2 py-1">
@@ -189,8 +190,8 @@ export default function Header() {
                   <div className="px-4 pb-3">
                     <div className="relative h-12 w-[176px]">
                       <Image
-                        src={withBasePath("/images/brand/praiseworthy-wordmark.png")}
-                        alt="Praise Worthy brand wordmark"
+                        src={withBasePath("/images/brand/praiseworthy-wordmark.webp")}
+                        alt="Praise Worthy Roofing brand wordmark"
                         fill
                         sizes="176px"
                         className="object-contain object-left"
@@ -214,14 +215,14 @@ export default function Header() {
                   ))}
                 </div>
                   {navLinks.map((link) => (
-                    <a
+                    <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
                       className="px-4 py-3 text-base font-medium text-brand-text hover:text-brand-navy hover:bg-brand-navy/6 rounded-xl transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   ))}
                   <div className="border-t mt-4 pt-4">
                     {locale === "zh" ? (

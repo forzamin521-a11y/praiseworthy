@@ -48,8 +48,8 @@ export default function WeChatQrButton({
           <div className="overflow-hidden rounded-[24px] border border-brand-navy/10 bg-white p-4 shadow-sm">
             <div className="relative mx-auto aspect-[3/4] w-full max-w-[340px]">
               <Image
-                src={withBasePath("/images/contact/wechat-qr.jpg")}
-                alt="WeChat QR code for Praise Worthy contact"
+                src={withBasePath("/images/contact/wechat-qr.webp")}
+                alt="Praise Worthy Roofing WeChat QR code for roofing inspection contact"
                 fill
                 sizes="(min-width: 768px) 340px, 80vw"
                 className="object-contain"

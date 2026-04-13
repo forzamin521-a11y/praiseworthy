@@ -114,22 +114,22 @@ export default function BeforeAfter() {
   const projects = [
     {
       location: projectLocations[0],
-      beforeImg: "/images/before-after/chimney-before.png",
-      afterImg: "/images/before-after/chimney-after.png",
+      beforeImg: "/images/before-after/chimney-before.webp",
+      afterImg: "/images/before-after/chimney-after.webp",
       beforePosition: "center center",
       afterPosition: "center center",
     },
     {
       location: projectLocations[1],
-      beforeImg: "/images/before-after/front-house-before.png",
-      afterImg: "/images/before-after/front-house-after.png",
+      beforeImg: "/images/before-after/front-house-before.webp",
+      afterImg: "/images/before-after/front-house-after.webp",
       beforePosition: "center 42%",
       afterPosition: "center 42%",
     },
     {
       location: projectLocations[2],
-      beforeImg: "/images/before-after/aerial-before.png",
-      afterImg: "/images/before-after/aerial-after.png",
+      beforeImg: "/images/before-after/aerial-before.webp",
+      afterImg: "/images/before-after/aerial-after.webp",
       beforePosition: "center center",
       afterPosition: "center center",
     },

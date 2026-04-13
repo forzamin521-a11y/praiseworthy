@@ -103,7 +103,7 @@ export default function FreeInspection() {
           >
             <div className="relative rounded-[28px] overflow-hidden shadow-2xl aspect-[4/3] border border-brand-navy/8 bg-brand-surface">
               <Image
-                src={withBasePath("/images/brand/embroidered-shirt.png")}
+                src={withBasePath("/images/brand/embroidered-shirt.webp")}
                 alt={t.images.shirtAlt}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

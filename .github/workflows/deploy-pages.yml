@@ -36,12 +36,15 @@ jobs:
 
       - name: Build static site
         env:
-          NEXT_PUBLIC_SITE_ORIGIN: https://www.praiseworthyroofing.com
+          NEXT_PUBLIC_SITE_ORIGIN: https://praiseworthyroofing.com
           NEXT_PUBLIC_SITE_BASE_PATH: ""
         run: npm run build
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
+
+      - name: Add CNAME
+        run: echo "praiseworthyroofing.com" > out/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
