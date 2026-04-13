@@ -15,7 +15,15 @@ import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import { type Locale } from "@/lib/i18n";
 import { localeMeta } from "@/lib/seo-i18n";
-import { BUSINESS_ALT_NAME, BUSINESS_NAME, SERVICE_AREAS, SITE_URL } from "@/lib/seo";
+import {
+  BUSINESS_ALT_NAME,
+  BUSINESS_NAME,
+  SERVICE_AREAS,
+  SITE_URL,
+  SITE_PUBLISHED_AT,
+  SITE_UPDATED_AT,
+  createWebPageSchema,
+} from "@/lib/seo";
 
 export default function HomePage({
   locale,
@@ -43,19 +51,18 @@ export default function HomePage({
               description: meta.websiteDescription,
             },
             {
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              "@id": `${pageUrl}#webpage`,
-              inLanguage: meta.languageTag,
-              url: pageUrl,
-              name: meta.pageName,
-              isPartOf: {
-                "@id": `${SITE_URL}#website`,
-              },
-              about: {
-                "@id": `${SITE_URL}#roofingcontractor`,
-              },
-              description: meta.description,
+              ...createWebPageSchema({
+                id: `${pageUrl}#webpage`,
+                inLanguage: meta.languageTag,
+                url: pageUrl,
+                name: meta.pageName,
+                description: meta.description,
+                datePublished: SITE_PUBLISHED_AT,
+                dateModified: SITE_UPDATED_AT,
+                speakable: {
+                  cssSelector: ["main h1", "#free-inspection h2", "#faq h2"],
+                },
+              }),
             },
             {
               "@context": "https://schema.org",

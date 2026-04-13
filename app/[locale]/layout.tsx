@@ -7,12 +7,20 @@ import { localeMeta } from "@/lib/seo-i18n";
 import { getLanguageAlternates, getLocaleUrl } from "@/lib/seo-routes";
 import {
   BUSINESS_ALT_NAME,
+  BUSINESS_AUTHOR_NAME,
   BUSINESS_EMAIL,
   BUSINESS_NAME,
   BUSINESS_PHONE_E164,
   GOOGLE_MAPS_URL,
   SERVICE_AREAS,
   SITE_URL,
+  SITE_PUBLISHED_AT,
+  SITE_UPDATED_AT,
+  getAuthorMetadata,
+  getDefaultRobots,
+  getMetadataBase,
+  getSameAsLinks,
+  getSocialMetadata,
 } from "@/lib/seo";
 
 type LayoutProps = {
@@ -40,7 +48,9 @@ export async function generateMetadata({
   const canonical = localePath(locale);
 
   return {
-    metadataBase: new URL(SITE_URL),
+    ...getAuthorMetadata(),
+    metadataBase: getMetadataBase(),
+    referrer: "strict-origin-when-cross-origin",
     icons: {
       icon: [{ url: "/icon.png", type: "image/png" }],
       shortcut: [{ url: "/icon.png", type: "image/png" }],
@@ -56,37 +66,14 @@ export async function generateMetadata({
       canonical,
       languages: getLanguageAlternates(),
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
-    openGraph: {
+    robots: getDefaultRobots(),
+    ...getSocialMetadata({
       title: meta.title,
       description: meta.description,
-      type: "website",
-      locale: meta.languageTag.replace("-", "_"),
       url: canonical,
       siteName: meta.siteName,
-      images: [
-        {
-          url: `${SITE_URL}/images/social/social-card.svg`,
-          alt: meta.ogAlt,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary",
-      title: meta.title,
-      description: meta.description,
-      images: [`${SITE_URL}/images/social/social-card.svg`],
-    },
+      imageAlt: meta.ogAlt,
+    }),
     category: "home services",
   };
 }
@@ -129,8 +116,9 @@ export default async function LocaleLayout({
                 email: BUSINESS_EMAIL,
                 logo: `${SITE_URL}/brand-logo.svg`,
                 image: `${SITE_URL}/images/social/social-card.svg`,
-                sameAs: [GOOGLE_MAPS_URL],
+                sameAs: getSameAsLinks(),
                 hasMap: GOOGLE_MAPS_URL,
+                foundingDate: SITE_PUBLISHED_AT,
                 geo: {
                   "@type": "GeoCoordinates",
                   latitude: 32.8602635,
@@ -174,6 +162,11 @@ export default async function LocaleLayout({
                 serviceType: meta.serviceTypes,
                 priceRange: "Free Inspection",
                 knowsAbout: meta.knowsAbout,
+                founder: {
+                  "@type": "Organization",
+                  name: BUSINESS_AUTHOR_NAME,
+                },
+                dateModified: SITE_UPDATED_AT,
               }),
             }}
           />

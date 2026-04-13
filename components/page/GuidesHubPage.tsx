@@ -15,6 +15,7 @@ import {
   BUSINESS_PHONE,
   BUSINESS_PHONE_E164,
   SITE_URL,
+  createBreadcrumbSchema,
 } from "@/lib/seo";
 import {
   ArrowRight,
@@ -124,6 +125,10 @@ export default function GuidesHubPage({
         .map((city) => [city.slug, city]),
     ).values(),
   ).slice(0, 6);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: locale === "en" ? "Home" : BUSINESS_NAME, item: locale === "en" ? `${SITE_URL}/` : `${SITE_URL}/${locale}/` },
+    { name: title, item: hubUrl },
+  ]);
 
   return (
     <>
@@ -157,7 +162,8 @@ export default function GuidesHubPage({
                 name: guide.title,
               })),
             },
-          ]),
+            breadcrumbSchema,
+          ].filter(Boolean)),
         }}
       />
       <Header />
@@ -248,6 +254,7 @@ export default function GuidesHubPage({
             <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_340px]">
               <div className="space-y-4">
                 {guides.map((guide) => (
+                  <article key={guide.slug}>
                   <Link
                     key={guide.slug}
                     href={getGuidePath(guide.slug, locale)}
@@ -289,6 +296,7 @@ export default function GuidesHubPage({
                       </div>
                     </div>
                   </Link>
+                  </article>
                 ))}
               </div>
 

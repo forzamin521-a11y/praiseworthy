@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/link-button";
@@ -48,7 +49,7 @@ export default function Hero() {
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={withBasePath("/images/brand/hero-truck-home.png")}
+          src={withBasePath("/images/brand/hero-truck-home.webp")}
           alt={t.images.heroAlt}
           fill
           priority
@@ -101,6 +102,21 @@ export default function Hero() {
               {t.common.scheduleOnline}
             </LinkButton>
           </div>
+
+          <nav
+            aria-label="Primary roofing service links"
+            className="mb-8 flex flex-wrap gap-3 text-sm font-medium text-brand-surface/82"
+          >
+            <a href="#free-inspection" className="underline-offset-4 hover:text-white hover:underline">
+              Start with a free roof inspection
+            </a>
+            <a href="#service-area" className="underline-offset-4 hover:text-white hover:underline">
+              Explore DFW service areas
+            </a>
+            <Link href="/guides/" className="underline-offset-4 hover:text-white hover:underline">
+              Read roofing guides for homeowners
+            </Link>
+          </nav>
 
           {/* Trust Signals */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 rounded-[24px] border border-white/10 bg-black/10 px-5 py-4 backdrop-blur-[2px] max-w-fit">

@@ -13,11 +13,13 @@ import {
 } from "@/lib/guides";
 import { type Locale } from "@/lib/i18n";
 import {
-  BUSINESS_EMAIL,
+  BUSINESS_AUTHOR_NAME,
   BUSINESS_NAME,
   BUSINESS_PHONE,
   BUSINESS_PHONE_E164,
   SITE_URL,
+  createBreadcrumbSchema,
+  createFaqSchema,
 } from "@/lib/seo";
 import {
   ArrowRight,
@@ -97,6 +99,12 @@ export default function GuidePage({
   const ui = guideUiCopy[locale];
   const homeInspectionHref =
     locale === "en" ? "/#free-inspection" : `/${locale}/#free-inspection`;
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", item: locale === "en" ? `${SITE_URL}/` : `${SITE_URL}/${locale}/` },
+    { name: "Guides", item: locale === "en" ? `${SITE_URL}/guides/` : `${SITE_URL}/${locale}/guides/` },
+    { name: guide.title, item: guideUrl },
+  ]);
+  const faqSchema = createFaqSchema(guide.faq);
 
   return (
     <>
@@ -112,7 +120,7 @@ export default function GuidePage({
               description: guide.metaDescription,
               author: {
                 "@type": "Organization",
-                name: BUSINESS_NAME,
+                name: BUSINESS_AUTHOR_NAME,
               },
               publisher: {
                 "@type": "Organization",
@@ -120,48 +128,24 @@ export default function GuidePage({
               },
               mainEntityOfPage: guideUrl,
               articleSection: guide.sections.map((section) => section.title),
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: guide.faq.map((item) => ({
-                "@type": "Question",
-                name: item.question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: item.answer,
-                },
-              })),
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "Service",
-              "@id": `${SITE_URL}#roofing-service-guides`,
-              name: `${BUSINESS_NAME} roof inspection and storm damage guidance`,
-              provider: {
-                "@type": "RoofingContractor",
+              about: {
                 "@id": `${SITE_URL}#roofingcontractor`,
-                name: BUSINESS_NAME,
-                telephone: BUSINESS_PHONE_E164,
-                email: BUSINESS_EMAIL,
               },
-              serviceType: [
-                "Roof inspection guidance",
-                "Storm damage guidance",
-                "Hail damage guidance",
-                "Insurance process guidance",
-              ],
-              areaServed: relatedCities.map((city) => ({
-                "@type": "City",
-                name: city.city,
-              })),
-              url: guideUrl,
+              datePublished: guide.publishedAt,
+              dateModified: guide.updatedAt,
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["article h1", "article h2", "section[aria-label='guide faq'] h3"],
+              },
             },
-          ]),
+            breadcrumbSchema,
+            faqSchema,
+          ].filter(Boolean)),
         }}
       />
       <Header />
       <main>
+        <article>
         <section className="bg-gradient-to-b from-brand-navy via-[#173122] to-brand-navy pt-32 pb-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl">
@@ -314,7 +298,7 @@ export default function GuidePage({
           </div>
         </section>
 
-        <section className="bg-brand-surface py-16 md:py-24">
+        <section aria-label="guide faq" className="bg-brand-surface py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-[32px] border border-brand-navy/8 bg-white p-8 shadow-[0_18px_40px_rgba(27,54,38,0.08)] md:p-10">
               <div className="mb-8 flex items-end justify-between gap-4">
@@ -337,18 +321,19 @@ export default function GuidePage({
 
               <div className="space-y-4">
                 {guide.faq.map((item) => (
-                  <div
+                  <article
                     key={item.question}
                     className="rounded-[24px] border border-brand-navy/8 bg-brand-surface px-6 py-5"
                   >
                     <h3 className="mb-2 font-semibold text-brand-text">{item.question}</h3>
                     <p className="leading-7 text-brand-muted">{item.answer}</p>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
           </div>
         </section>
+        </article>
       </main>
       <Footer />
       <MobilePhoneButton />

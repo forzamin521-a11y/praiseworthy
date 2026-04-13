@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
-import { BUSINESS_NAME, BUSINESS_PHONE, SITE_URL } from "@/lib/seo";
-import { absoluteUrl, normalizeUrlPath } from "@/lib/seo";
+import {
+  BUSINESS_AUTHOR_NAME,
+  BUSINESS_NAME,
+  BUSINESS_PHONE,
+  SITE_PUBLISHED_AT,
+  SITE_UPDATED_AT,
+} from "@/lib/seo";
+import {
+  absoluteUrl,
+  getAuthorMetadata,
+  getDefaultRobots,
+  getSocialMetadata,
+  normalizeUrlPath,
+} from "@/lib/seo";
 import { localeMeta } from "@/lib/seo-i18n";
 
 export type CityPage = {
@@ -896,44 +908,27 @@ export function getCityPageMetadata(page: CityPage): Metadata {
   const url = getCityPageUrl(page.slug);
 
   return {
+    ...getAuthorMetadata(),
     title: page.metaTitle,
     description: page.metaDescription,
     keywords: page.keywords,
     other: {
       "content-language": localeMeta.en.languageTag,
+      "article:published_time": SITE_PUBLISHED_AT,
+      "article:modified_time": SITE_UPDATED_AT,
+      "article:author": BUSINESS_AUTHOR_NAME,
     },
     alternates: {
       canonical: url,
     },
-    openGraph: {
+    ...getSocialMetadata({
       title: page.metaTitle,
       description: page.metaDescription,
-      type: "article",
       url,
       siteName: BUSINESS_NAME,
-      images: [
-        {
-          url: `${SITE_URL}/images/social/social-card.svg`,
-          alt: page.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary",
-      title: page.metaTitle,
-      description: page.metaDescription,
-      images: [`${SITE_URL}/images/social/social-card.svg`],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
-      },
-    },
+      type: "website",
+      imageAlt: page.title,
+    }),
+    robots: getDefaultRobots(),
   };
 }
