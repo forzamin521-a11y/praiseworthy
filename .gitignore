@@ -17,6 +17,7 @@
 /.next/
 /out/
 /.tools/
+/.worktrees/
 
 # production
 /build
