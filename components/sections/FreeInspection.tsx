@@ -16,7 +16,7 @@ import { useInView } from "@/lib/hooks";
 import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
-const PHONE_HREF = "tel:+16823216387";
+const PHONE_HREF = "tel:+16822500078";
 
 export default function FreeInspection() {
   const ref = useRef<HTMLDivElement>(null);

@@ -4,7 +4,7 @@ import { Phone } from "lucide-react";
 import WeChatQrButton from "@/components/contact/WeChatQrButton";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
-const PHONE_HREF = "tel:+16823216387";
+const PHONE_HREF = "tel:+16822500078";
 
 export default function MobilePhoneButton() {
   const { t, locale } = useLanguage();

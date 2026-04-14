@@ -11,8 +11,8 @@ import { locales } from "@/lib/i18n";
 import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
-const PHONE_NUMBER = "682-321-6387";
-const PHONE_HREF = "tel:+16823216387";
+const PHONE_NUMBER = "682-250-0078";
+const PHONE_HREF = "tel:+16822500078";
 
 function withOptionalHash(path: string, hash: string) {
   return hash ? `${path}${hash}` : path;

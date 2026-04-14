@@ -41,7 +41,7 @@ export const translations = {
       goToSlide: "Go to slide",
       homeowner: "Homeowner",
     },
-    header: { callWithNumber: "Call 682-321-6387", guidesLabel: "Guides" },
+    header: { callWithNumber: "Call 682-250-0078", guidesLabel: "Guides" },
     mobileBar: { cta: "Call for a Free Roof Check" },
     images: {
       heroAlt: "Praise Worthy truck and founder in front of a premium Texas home",
@@ -168,7 +168,7 @@ export const translations = {
     roofingLabel: "Techos",
     nav: ["Servicios", "Por qué elegirnos", "Proyectos", "Reseñas", "Zona de servicio", "Preguntas"],
     common: { call: "Llamar", freeInspection: "Inspeccion gratis", scheduleOnline: "Agendar en linea", craftsmanshipTagline: "Artesania reconocida para tu hogar", previousSlide: "Diapositiva anterior", nextSlide: "Siguiente diapositiva", goToSlide: "Ir a la diapositiva", homeowner: "Propietario" },
-    header: { callWithNumber: "Llama al 682-321-6387", guidesLabel: "Guias" },
+    header: { callWithNumber: "Llama al 682-250-0078", guidesLabel: "Guias" },
     mobileBar: { cta: "Llama y agenda tu inspección gratis" },
     images: {
       heroAlt: "Camioneta de Praise Worthy y fundador frente a una casa residencial en Texas",
@@ -259,7 +259,7 @@ export const translations = {
     roofingLabel: "屋顶服务",
     nav: ["服务内容", "为什么选择我们", "施工案例", "客户评价", "服务区域", "常见问题"],
     common: { call: "电话咨询", freeInspection: "免费检查", scheduleOnline: "在线预约", craftsmanshipTagline: "值得称赞的家居工艺品质", previousSlide: "上一张", nextSlide: "下一张", goToSlide: "前往第", homeowner: "业主" },
-    header: { callWithNumber: "致电 682-321-6387", guidesLabel: "指南" },
+    header: { callWithNumber: "致电 682-250-0078", guidesLabel: "指南" },
     mobileBar: { cta: "现在致电 预约免费检查" },
     images: {
       heroAlt: "Praise Worthy 车辆与创始人站在德州高端住宅前",
@@ -350,7 +350,7 @@ export const translations = {
     roofingLabel: "지붕공사",
     nav: ["서비스", "선택 이유", "시공 사례", "고객 후기", "서비스 지역", "자주 묻는 질문"],
     common: { call: "전화하기", freeInspection: "무료 점검", scheduleOnline: "온라인 예약", craftsmanshipTagline: "집을 위한 칭찬받을 만한 시공 품질", previousSlide: "이전 슬라이드", nextSlide: "다음 슬라이드", goToSlide: "슬라이드 이동", homeowner: "주택 소유주" },
-    header: { callWithNumber: "682-321-6387로 전화", guidesLabel: "가이드" },
+    header: { callWithNumber: "682-250-0078로 전화", guidesLabel: "가이드" },
     mobileBar: { cta: "지금 전화해 무료 점검 예약하기" },
     images: {
       heroAlt: "텍사스 고급 주택 앞에 선 Praise Worthy 트럭과 대표",

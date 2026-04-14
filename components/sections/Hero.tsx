@@ -8,7 +8,7 @@ import { Phone, Calendar, CheckCircle, ChevronLeft, ChevronRight } from "lucide-
 import { withBasePath } from "@/lib/seo";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
-const PHONE_HREF = "tel:+16823216387";
+const PHONE_HREF = "tel:+16822500078";
 const SCHEDULE_HREF =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ01K4KNgIlF5_N0dcliaOX-17GpOsjDRKNjnDCZ_giIDfnAqaxLZY90DLEHQfXcTRKuNAtlZ1_v";
 
