@@ -165,6 +165,7 @@ export default async function LocaleLayout({
                 founder: {
                   "@type": "Organization",
                   name: BUSINESS_AUTHOR_NAME,
+                  url: SITE_URL,
                 },
                 dateModified: SITE_UPDATED_AT,
               }),

@@ -70,6 +70,7 @@ export default function DefaultRootLayout({
                 founder: {
                   "@type": "Organization",
                   name: BUSINESS_AUTHOR_NAME,
+                  url: SITE_URL,
                 },
                 areaServed: SERVICE_AREAS.map((area) => ({
                   "@type": "City",

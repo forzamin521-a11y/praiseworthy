@@ -87,7 +87,9 @@ export default function Testimonials() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
+              "@id": "https://praiseworthyroofing.com#organization",
               name: "Praise Worthy",
+              url: "https://praiseworthyroofing.com/",
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "5.0",

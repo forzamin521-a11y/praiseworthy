@@ -22,6 +22,7 @@ import {
   SITE_URL,
   SITE_PUBLISHED_AT,
   SITE_UPDATED_AT,
+  createBreadcrumbSchema,
   createWebPageSchema,
 } from "@/lib/seo";
 
@@ -33,6 +34,12 @@ export default function HomePage({
   pageUrl: string;
 }) {
   const meta = localeMeta[locale];
+  const breadcrumbSchema = createBreadcrumbSchema([
+    {
+      name: locale === "en" ? "Home" : meta.pageName,
+      item: pageUrl,
+    },
+  ]);
 
   return (
     <>
@@ -68,7 +75,9 @@ export default function HomePage({
               "@context": "https://schema.org",
               "@type": "Service",
               "@id": `${pageUrl}#service`,
+              name: `${BUSINESS_NAME} free roof inspection and storm damage roofing services`,
               serviceType: meta.serviceTypes,
+              url: pageUrl,
               areaServed: SERVICE_AREAS.map((area) => ({
                 "@type": "City",
                 name: area,
@@ -92,6 +101,7 @@ export default function HomePage({
                 })),
               },
             },
+            breadcrumbSchema,
             {
               "@context": "https://schema.org",
               "@type": "ItemList",

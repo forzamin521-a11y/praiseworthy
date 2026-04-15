@@ -121,10 +121,12 @@ export default function GuidePage({
               author: {
                 "@type": "Organization",
                 name: BUSINESS_AUTHOR_NAME,
+                url: SITE_URL,
               },
               publisher: {
                 "@type": "Organization",
                 name: BUSINESS_NAME,
+                url: SITE_URL,
               },
               mainEntityOfPage: guideUrl,
               articleSection: guide.sections.map((section) => section.title),
